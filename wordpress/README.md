@@ -1,6 +1,11 @@
 # WPDC - Wordpress Docker Compose
+Based on Wordpres 4.8 with following plugins installed:
 
-#### Easy Wordpress development with Docker and Docker Compose
+	* WP REST API (v2)
+	* Advanced Custom Fields
+	* CPT UI
+	* ACF TO REST
+	* Better Featured Images
 
 ## Starting a new project
 
@@ -13,7 +18,7 @@ In the file you may change the IP address (in case you run multiple containers) 
 
 Open a terminal and *cd* to the folder you have the docker-compose.yml and run:
 ```
-sudo docker-compose up
+docker-compose up
 ```
 
 This create 2 new folders beside your docker-compose.yml file.
@@ -26,23 +31,23 @@ The containers are now build and running. You should be able to access the Wordp
 
 You can start the containers with the up command in daemon mode (by adding **-d** as a param) or by using the start command:
 ```
-sudo docker-compose start
+docker-compose start
 ```
 
 ##### Stopping containers
 ```
-sudo docker-compose stop
+docker-compose stop
 ```
 
 ##### Remove containers
 
 To stop and remove all the containers use the **down** command
 ```
-sudo docker-compose down
+docker-compose down
 ```
 ... or the **rm** command if the containers are stopped already.
 ```
-sudo docker-compose rm --all
+docker-compose rm --all
 ```
 
 ## Project from existing source
