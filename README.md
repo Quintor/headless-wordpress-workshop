@@ -12,3 +12,8 @@
 - `cd ../frontend`
 - `npm install && npm start`
 - Enjoy Star Wars movies!
+
+## Wordpress admin
+
+User: admin
+WW: Quintor!
