@@ -1,4 +1,4 @@
-import { SFC } from "react";
+import React, { SFC } from "react";
 import { MovieResponse } from "./models/movieResponse";
 
 type Props = { movie: MovieResponse };
