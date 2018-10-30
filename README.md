@@ -38,3 +38,30 @@ WW: Quintor!
 - docker
 - node 10, npm 6
 - yarn optional
+- postman optional
+
+## Outline
+
+- presenation about what & why headless cms
+
+- start wordpress with docker
+- config custom post movies
+- create custom fields
+- add movies in wordpress
+- check data in postman
+  - add postman test?
+- create react app
+- add typescript (optional?)
+- add add api call
+- show simple list
+- create movie component
+- add styling (material?)
+
+- demo next level with sitecore jss
+- headless cms challenges check with Arjen, Kramp en Essent
+
+## Tips
+
+<https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935>
+
+`docker system prune --volumes -a`
