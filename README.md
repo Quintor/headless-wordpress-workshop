@@ -12,11 +12,13 @@
 - `npx create-react-app frontend`
 - `cd frontend`
 - Add typescript
+
   ```sh
   npm install --save typescript @types/node @types/react @types/react-dom @types/jest
   # or
   yarn add typescript @types/node @types/react @types/react-dom @types/jest
   ```
+
 - Install dependencies and start
 
   ```sh
