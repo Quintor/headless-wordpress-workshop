@@ -45,20 +45,19 @@ WW: Quintor!
 ## Outline
 
 - presenation about what & why headless cms
-
-- start wordpress with docker
-- config custom post movies
-- create custom fields
-- add movies in wordpress
-- check data in postman
+- handson
+  - start wordpress with docker
+  - config custom post movies
+  - create custom fields
+  - add movies in wordpress
+  - check data in postman
   - add postman test?
-- create react app
-- add typescript (optional?)
-- add add api call
-- show simple list
-- create movie component
-- add styling (material?)
-
+  - create react app
+    - add typescript (optional?)
+  - add add api call
+  - show simple list
+  - create movie component
+  - add styling (material?)
 - demo next level with sitecore jss
 - headless cms challenges check with Arjen, Kramp en Essent
 
