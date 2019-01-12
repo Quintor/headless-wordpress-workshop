@@ -28,8 +28,7 @@ services:
       - wp
 
   db:
-    build: .
-    image: mysql:local # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
+    image: mysql:8 # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
     ports:
       - ${IP}:3306:3306 # change ip if required
     command: [
@@ -38,7 +37,7 @@ services:
         '--collation-server=utf8mb4_unicode_ci'
     ]
     volumes:
-      # - ./wp-data:/docker-entrypoint-initdb.d/
+      - ./wp-data:/docker-entrypoint-initdb.d/
       - db_data:/var/lib/mysql:rw
     environment:
       MYSQL_DATABASE: "${DB_NAME}"
