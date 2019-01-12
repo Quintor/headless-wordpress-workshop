@@ -4,7 +4,7 @@ services:
   wp:
     image: wordpress:4.9 # https://hub.docker.com/_/wordpress/
     ports:
-      - ${IP}:5000:80 # change ip if required
+      - ${IP}:8081:80 # change ip if required
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html # Full wordpress project
