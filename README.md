@@ -2,10 +2,12 @@
 
 - `cd wordpress`
 - `docker-compose up --build`
+
   - sometimes starting up the database takes to long. Try to manual restart the docker container.
   - `docker ps -a`
   - look for the stopped wordpress container
   - `docker restart wordpressdockercompose_wordpress_1` or use `docker restart $CONTAINER ID`
+
 - check if wordpress api is working
   - `curl -H "Content-Type: application/json" http://localhost/wp-json/wp/v2/movies/21?_embed`
 - `cd ../`
@@ -66,3 +68,13 @@ WW: Quintor!
 <https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935>
 
 `docker system prune --volumes -a`
+
+## Troubleshooting
+
+- If on a windows machine plugins aren't loaded in Wordpress, follow these steps:
+  - Open Docker settings
+  - Go to 'Shared Drives' tab
+  - Click on 'Reset Credentials'
+  - Select the drive you want to share
+  - Click apply
+  - Enter windows credentials
