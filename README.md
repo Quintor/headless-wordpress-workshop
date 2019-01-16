@@ -42,7 +42,7 @@ docker-compose up
 
 ```sh
 curl -H "Content-Type: application/json" http://localhost:8081/wp-json/wp/v2/movies/21?_embed
-curl -H "Content-Type: application/json" http://localhost:8081/wp-json/menus/v1/menus/menu-1
+curl -H "Content-Type: application/json" http://localhost:8081/wp-json/menus/v1/menus/header-menu
 ```
 
 When the installation process completes successfully:
