@@ -2,12 +2,6 @@
 
 - `cd wordpress`
 - `docker-compose up`
-
-  - sometimes starting up the database takes to long. Try to manual restart the docker container.
-  - `docker ps -a`
-  - look for the stopped wordpress container
-  - `docker restart wordpressdockercompose_wordpress_1` or use `docker restart $CONTAINER ID`
-
 - check if wordpress api is working
   - `curl -H "Content-Type: application/json" http://localhost:8081/wp-json/wp/v2/movies/21?_embed`
   - `curl -H "Content-Type: application/json" http://localhost:8081/wp-json/menus/v1/menus/menu-1`
@@ -26,8 +20,6 @@
 
   ```sh
   npm install && npm start
-  # or
-  yarn start
   ```
 
 - Enjoy Star Wars movies!
