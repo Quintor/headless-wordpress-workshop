@@ -1,7 +1,7 @@
 # Headless WordPress with react
 
 - `cd wordpress`
-- `docker-compose up --build`
+- `docker-compose up`
 
   - sometimes starting up the database takes to long. Try to manual restart the docker container.
   - `docker ps -a`
@@ -9,7 +9,8 @@
   - `docker restart wordpressdockercompose_wordpress_1` or use `docker restart $CONTAINER ID`
 
 - check if wordpress api is working
-  - `curl -H "Content-Type: application/json" http://localhost/wp-json/wp/v2/movies/21?_embed`
+  - `curl -H "Content-Type: application/json" http://localhost:8081/wp-json/wp/v2/movies/21?_embed`
+  - `curl -H "Content-Type: application/json" http://localhost:8081/wp-json/menus/v1/menus/menu-1`
 - `cd ../`
 - `npx create-react-app frontend`
 - `cd frontend`
