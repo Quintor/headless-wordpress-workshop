@@ -10,13 +10,13 @@ const layoutStyle = {
 };
 
 interface ILayoutProps {
-  menu: IWpMenu;
+  menu?: IWpMenu;
 }
 
 const Layout: FC<ILayoutProps> = ({ children, menu }) => (
   <div style={layoutStyle}>
     <Header />
-    <Menu menu={menu} />
+    {menu && <Menu menu={menu} />}
     <main>{children}</main>
     <Footer />
   </div>
