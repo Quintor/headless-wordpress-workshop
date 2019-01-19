@@ -2,9 +2,8 @@ import Error from 'next/error';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import Menu from '../components/Menu';
-import withPageMenu from '../components/PageWrapper';
+import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
-import { IWpMenu } from '../types/menu';
 import { IWpPost } from '../types/post';
 
 interface IMovieModel {
@@ -12,10 +11,11 @@ interface IMovieModel {
   release_year: string;
   description: string;
 }
-interface IProps {
+interface IOwnProps {
   movie: IWpPost<IMovieModel>;
-  headerMenu: IWpMenu;
 }
+
+type IProps = IOwnProps & IMenuProps;
 
 class Movie extends Component<IProps> {
   public static async getInitialProps(context: any) {
@@ -45,4 +45,4 @@ class Movie extends Component<IProps> {
   }
 }
 
-export default withPageMenu(Movie);
+export default withHeaderMenu(Movie);

@@ -3,17 +3,17 @@ import Link from 'next/link';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import Menu from '../components/Menu';
-import withPageMenu from '../components/PageWrapper';
+import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
 import { IWpCategory } from '../types/category';
-import { IWpMenu } from '../types/menu';
 import { IWpPost } from '../types/post';
 
-interface IProps {
+interface IOwnProps {
   categories: IWpCategory[];
   posts?: IWpPost[];
-  headerMenu: IWpMenu;
 }
+
+type IProps = IOwnProps & IMenuProps;
 
 class Category extends Component<IProps> {
   public static async getInitialProps(context: any) {
@@ -57,4 +57,4 @@ class Category extends Component<IProps> {
   }
 }
 
-export default withPageMenu(Category);
+export default withHeaderMenu(Category);

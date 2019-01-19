@@ -2,15 +2,15 @@ import Error from 'next/error';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import Menu from '../components/Menu';
-import withPageMenu from '../components/PageWrapper';
+import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
-import { IWpMenu } from '../types/menu';
 import { IWpPost } from '../types/post';
 
-interface IProps {
+interface IOwnProps {
   post: IWpPost;
-  headerMenu: IWpMenu;
 }
+
+type IProps = IOwnProps & IMenuProps;
 
 class Post extends Component<IProps> {
   public static async getInitialProps(context: any) {
@@ -38,4 +38,4 @@ class Post extends Component<IProps> {
   }
 }
 
-export default withPageMenu(Post);
+export default withHeaderMenu(Post);

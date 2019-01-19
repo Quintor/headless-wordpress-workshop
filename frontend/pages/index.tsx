@@ -2,9 +2,8 @@ import Link from 'next/link';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import Menu from '../components/Menu';
-import withPageMenu from '../components/PageWrapper';
+import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
-import { IWpMenu } from '../types/menu';
 import { IWpPage } from '../types/page';
 import { IWpPost } from '../types/post';
 
@@ -13,11 +12,12 @@ const headerImageStyle = {
   marginTop: 50
 };
 
-interface IProps {
+interface IOwnProps {
   pages: IWpPage[];
   posts: IWpPost[];
-  headerMenu: IWpMenu;
 }
+
+type IProps = IOwnProps & IMenuProps;
 
 class Index extends Component<IProps> {
   public static async getInitialProps() {
@@ -75,4 +75,4 @@ class Index extends Component<IProps> {
   }
 }
 
-export default withPageMenu(Index);
+export default withHeaderMenu(Index);

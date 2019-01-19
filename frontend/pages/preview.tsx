@@ -3,13 +3,11 @@ import Error from 'next/error';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import Menu from '../components/Menu';
-import withPageMenu from '../components/PageWrapper';
 import { Config } from '../config';
-import { IWpMenu } from '../types/menu';
+import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import { IWpPost } from '../types/post';
 
-interface IProps {
-  headerMenu: IWpMenu;
+interface IOwnProps {
   url: {
     query: {
       id: number;
@@ -21,6 +19,8 @@ interface IProps {
 interface IState {
   post: IWpPost | null;
 }
+
+type IProps = IOwnProps & IMenuProps;
 
 class Preview extends Component<IProps, IState> {
   constructor(props: IProps) {
@@ -69,4 +69,4 @@ class Preview extends Component<IProps, IState> {
   }
 }
 
-export default withPageMenu(Preview);
+export default withHeaderMenu(Preview);
