@@ -29,11 +29,10 @@ class Menu extends Component<IProps> {
       }
 
       const slug = this.getSlug(item.url);
-      const actualPage = item.object === "category" ? "category" : "post";
       return (
         <Link
           as={`/${item.object}/${slug}`}
-          href={`/${actualPage}?slug=${slug}&apiRoute=${item.object}`}
+          href={`/${item.object}?slug=${slug}&apiRoute=${item.object}`}
           key={item.ID}
         >
           <a style={linkStyle}>{item.title}</a>
