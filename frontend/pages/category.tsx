@@ -1,12 +1,13 @@
 import { NextContext } from 'next';
 import Error from 'next/error';
 import Link from 'next/link';
-import React, { Component } from 'react';
+import React, { Component, FC } from 'react';
 import Layout from '../components/Layout';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
 import { IWpCategory } from '../types/category';
 import { IWpPost } from '../types/post';
+import PostLink from '../components/PostLink';
 
 interface IOwnProps {
   categories: IWpCategory[];
@@ -33,24 +34,11 @@ class Category extends Component<IProps> {
 
     const posts =
       this.props.posts &&
-      this.props.posts.map(post => {
-        return (
-          <ul key={post.id}>
-            <li>
-              <Link
-                as={`/${post.type}/${post.slug}`}
-                href={`/${post.type}?slug=${post.slug}&apiRoute=${post.type}`}
-              >
-                <a>{post.title.rendered}</a>
-              </Link>
-            </li>
-          </ul>
-        );
-      });
+      this.props.posts.map(post => <PostLink key={post.id} post={post} />);
     return (
       <Layout menu={this.props.headerMenu}>
         <h1>{this.props.categories[0].name} Posts</h1>
-        {posts}
+        <ul>{posts}</ul>
       </Layout>
     );
   }

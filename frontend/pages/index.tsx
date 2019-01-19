@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
+import PostLink from '../components/PostLink';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
 import styles from '../styles/index.scss';
@@ -28,30 +28,14 @@ class Index extends Component<IProps> {
   }
 
   public render() {
-    const posts = this.props.posts.map(post => {
-      return (
-        <li key={post.id}>
-          <Link
-            as={`/post/${post.slug}`}
-            href={`/post?slug=${post.slug}&apiRoute=posts`}
-          >
-            <a>{post.title.rendered}</a>
-          </Link>
-        </li>
-      );
-    });
-    const pages = this.props.pages.map(page => {
-      return (
-        <li key={page.id}>
-          <Link
-            as={`/page/${page.slug}`}
-            href={`/post?slug=${page.slug}&apiRoute=pages`}
-          >
-            <a>{page.title.rendered}</a>
-          </Link>
-        </li>
-      );
-    });
+    const posts = this.props.posts.map(post => (
+      <PostLink key={post.id} post={post} apiRoute="posts" />
+    ));
+
+    const pages = this.props.pages.map(page => (
+      <PostLink key={page.id} post={page} apiRoute="pages" />
+    ));
+
     return (
       <Layout menu={this.props.headerMenu}>
         <img

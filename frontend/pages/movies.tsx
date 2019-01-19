@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
 import { IWpPost } from '../types/post';
+import styles from '../styles/movie.scss';
 
 interface IMovieModel {
   rating: string;
@@ -30,7 +31,12 @@ class Movie extends Component<IProps> {
       movie._embedded['wp:featuredmedia'] &&
       movie._embedded['wp:featuredmedia'].length > 0
     ) {
-      return <img src={movie._embedded['wp:featuredmedia'][0].source_url} />;
+      return (
+        <img
+          className={styles.image}
+          src={movie._embedded['wp:featuredmedia'][0].source_url}
+        />
+      );
     }
 
     return null;

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { IWpMenuItem } from '../types/menu';
 
 const linkStyle = {
@@ -41,12 +41,20 @@ class Menu extends Component<IProps> {
     });
 
     return (
-      <nav>
-        <Link href="/">
-          <a style={linkStyle}>Home</a>
-        </Link>
-        {menuItems}
-      </nav>
+      <Fragment>
+        <nav className="nav">
+          <Link href="/">
+            <a style={linkStyle}>Home</a>
+          </Link>
+          {menuItems}
+        </nav>
+        <style jsx={true}>{`
+          .nav {
+            padding: 20px;
+            background-color: whitesmoke;
+          }
+        `}</style>
+      </Fragment>
     );
   }
 }
