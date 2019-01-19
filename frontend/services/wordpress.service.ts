@@ -39,15 +39,12 @@ class WordpressService {
   }
 
   public getCategories(slug?: string | string[]): Promise<IWpCategory[]> {
-    if (slug != null) {
+    if (slug == null) {
       return Promise.resolve([]);
     }
-    let slugQS: string;
-    if (Array.isArray(slug)) {
-      slugQS = slug.reduce((result, item) => `slug[]=${item}&${result}`, '');
-    } else {
-      slugQS = `slug=${slug}`;
-    }
+    const slugQS = queryString.stringify({
+      slug
+    });
 
     return fetch(`${Config.apiUrl}/wp-json/wp/v2/categories?${slugQS}`).then(
       res => res.json()
