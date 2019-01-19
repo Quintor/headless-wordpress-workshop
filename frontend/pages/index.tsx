@@ -7,6 +7,8 @@ import service from '../services/wordpress.service';
 import { IWpPage } from '../types/page';
 import { IWpPost } from '../types/post';
 
+import styles from '../styles/index.scss';
+
 const headerImageStyle = {
   marginBottom: 50,
   marginTop: 50
@@ -30,30 +32,26 @@ class Index extends Component<IProps> {
   public render() {
     const posts = this.props.posts.map(post => {
       return (
-        <ul key={post.id}>
-          <li>
-            <Link
-              as={`/post/${post.slug}`}
-              href={`/post?slug=${post.slug}&apiRoute=posts`}
-            >
-              <a>{post.title.rendered}</a>
-            </Link>
-          </li>
-        </ul>
+        <li key={post.id}>
+          <Link
+            as={`/post/${post.slug}`}
+            href={`/post?slug=${post.slug}&apiRoute=posts`}
+          >
+            <a>{post.title.rendered}</a>
+          </Link>
+        </li>
       );
     });
     const pages = this.props.pages.map(page => {
       return (
-        <ul key={page.id}>
-          <li>
-            <Link
-              as={`/page/${page.slug}`}
-              href={`/post?slug=${page.slug}&apiRoute=pages`}
-            >
-              <a>{page.title.rendered}</a>
-            </Link>
-          </li>
-        </ul>
+        <li key={page.id}>
+          <Link
+            as={`/page/${page.slug}`}
+            href={`/post?slug=${page.slug}&apiRoute=pages`}
+          >
+            <a>{page.title.rendered}</a>
+          </Link>
+        </li>
       );
     });
     return (
@@ -65,11 +63,11 @@ class Index extends Component<IProps> {
           style={headerImageStyle}
         />
         <h1>Hello</h1>
-        <div>World</div>
+        <p className={styles.example}>World</p>
         <h2>Posts</h2>
-        {posts}
+        <ul>{posts}</ul>
         <h2>Pages</h2>
-        {pages}
+        <ul>{pages}</ul>
       </Layout>
     );
   }
