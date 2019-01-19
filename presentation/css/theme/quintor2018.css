@@ -418,11 +418,11 @@ body {
  *********************************************/
 
 body:after {
-  content: url(../../images/blokjes-inverted-2018.png);
+  content: url(../../images/blokjes-inverted.png);
   transform: scale(0.13);
   position: fixed;
   bottom: -63em;
-  right: -87em;
+  right: -75em;
 }
 
 @media only screen and (max-width: 400px) {
