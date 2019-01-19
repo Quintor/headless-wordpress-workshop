@@ -2,7 +2,6 @@ import { NextContext } from 'next';
 import Error from 'next/error';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
-import Menu from '../components/Menu';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
 import { IWpPost } from '../types/post';
@@ -26,8 +25,7 @@ class Post extends Component<IProps> {
     }
 
     return (
-      <Layout>
-        <Menu menu={this.props.headerMenu} />
+      <Layout menu={this.props.headerMenu}>
         <h1>{this.props.post.title.rendered}</h1>
         <div
           dangerouslySetInnerHTML={{

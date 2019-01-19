@@ -3,7 +3,6 @@ import Error from 'next/error';
 import Link from 'next/link';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
-import Menu from '../components/Menu';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
 import { IWpCategory } from '../types/category';
@@ -49,8 +48,7 @@ class Category extends Component<IProps> {
         );
       });
     return (
-      <Layout>
-        <Menu menu={this.props.headerMenu} />
+      <Layout menu={this.props.headerMenu}>
         <h1>{this.props.categories[0].name} Posts</h1>
         {posts}
       </Layout>

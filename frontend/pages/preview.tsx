@@ -2,7 +2,6 @@ import fetch from 'isomorphic-unfetch';
 import Error from 'next/error';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
-import Menu from '../components/Menu';
 import { Config } from '../config';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import { IWpPost } from '../types/post';
@@ -56,8 +55,7 @@ class Preview extends Component<IProps, IState> {
     }
 
     return (
-      <Layout>
-        <Menu menu={this.props.headerMenu} />
+      <Layout menu={this.props.headerMenu}>
         <h1>{this.state.post ? this.state.post.title.rendered : ''}</h1>
         <div
           dangerouslySetInnerHTML={{

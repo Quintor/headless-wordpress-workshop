@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
-import Menu from '../components/Menu';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
+import styles from '../styles/index.scss';
 import { IWpPage } from '../types/page';
 import { IWpPost } from '../types/post';
-
-import styles from '../styles/index.scss';
 
 const headerImageStyle = {
   marginBottom: 50,
@@ -55,8 +53,7 @@ class Index extends Component<IProps> {
       );
     });
     return (
-      <Layout>
-        <Menu menu={this.props.headerMenu} />
+      <Layout menu={this.props.headerMenu}>
         <img
           src="/static/images/wordpress-plus-react-header.png"
           width="815"
