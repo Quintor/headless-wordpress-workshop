@@ -38,8 +38,8 @@ class Category extends Component<IProps> {
           <ul key={index}>
             <li>
               <Link
-                as={`/post/${post.slug}`}
-                href={`/post?slug=${post.slug}&apiRoute=posts`}
+                as={`/${post.type}/${post.slug}`}
+                href={`/${post.type}?slug=${post.slug}&apiRoute=${post.type}`}
               >
                 <a>{post.title.rendered}</a>
               </Link>
