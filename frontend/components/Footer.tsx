@@ -3,12 +3,12 @@ const hrStyle = {
 };
 
 const Footer = () => (
-  <div>
+  <footer>
     <hr style={hrStyle} />
     <p>
       ❤️ <a>Made by Henk &amp; David</a>
     </p>
-  </div>
+  </footer>
 );
 
 export default Footer;

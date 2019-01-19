@@ -41,12 +41,12 @@ class Menu extends Component<IProps> {
     });
 
     return (
-      <div>
+      <nav>
         <Link href="/">
           <a style={linkStyle}>Home</a>
         </Link>
         {menuItems}
-      </div>
+      </nav>
     );
   }
 }

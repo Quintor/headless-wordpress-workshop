@@ -1,16 +1,23 @@
 import { FC } from 'react';
+import { IWpMenu } from '../types/menu';
 import Footer from './Footer';
 import Header from './Header';
+import Menu from './Menu';
 
 const layoutStyle = {
   margin: 20,
   padding: 20
 };
 
-const Layout: FC = props => (
+interface ILayoutProps {
+  menu: IWpMenu;
+}
+
+const Layout: FC<ILayoutProps> = ({ children, menu }) => (
   <div style={layoutStyle}>
     <Header />
-    {props.children}
+    <Menu menu={menu} />
+    <main>{children}</main>
     <Footer />
   </div>
 );
