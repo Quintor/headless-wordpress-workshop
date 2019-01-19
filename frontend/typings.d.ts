@@ -1,3 +1,7 @@
-declare module "*.scss" {
-  export default {} as any;
+declare module '*.scss' {
+  interface IClassNames {
+    [className: string]: string;
+  }
+  const classNames: IClassNames;
+  export = classNames;
 }
