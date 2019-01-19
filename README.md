@@ -92,7 +92,30 @@ When the installation process completes successfully:
 
 ## Tips
 
-<https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935>
+React Typescript:
+
+- [Ultimate React Component Patterns with Typescript 2.8](https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935)
+- [React Typescript Cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet)
+
+Wordpress headless:
+
+- <https://github.com/elevati/wp-api-multiple-posttype>
+- <https://react-etc.net/entry/graphql-and-next-js-for-building-wordpress-sites-with-react-js>
+
+Next js:
+
+- <https://nextjs.org/learn/>
+
+## Examples in production
+
+Wordpress & Next js:
+
+- <https://www.worldcentralkitchen.org>
+- <https://dinendash.info>
+
+Next js:
+
+- <https://spectrum.chat/next-js?thread=e425a8b6-c9cb-4cd1-90bb-740fb3bd7541>
 
 ## Troubleshooting
 
