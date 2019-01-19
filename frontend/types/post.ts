@@ -22,6 +22,9 @@ export interface IWpPost<T = {}> {
   featured_media: number;
   template: string;
   acf: T;
+  _embedded?: {
+    'wp:featuredmedia': { source_url: string }[];
+  };
   _links: {
     self: [
       {

@@ -20,8 +20,20 @@ type IProps = IOwnProps & IMenuProps;
 class Movie extends Component<IProps> {
   public static async getInitialProps(context: NextContext) {
     const { slug, apiRoute } = context.query;
-    const movie = await service.getPost<IMovieModel>(apiRoute, slug);
+    const movie = await service.getPost<IMovieModel>(apiRoute, slug, true);
     return { movie };
+  }
+
+  public getImage(movie: IWpPost<IMovieModel>) {
+    if (
+      movie._embedded &&
+      movie._embedded['wp:featuredmedia'] &&
+      movie._embedded['wp:featuredmedia'].length > 0
+    ) {
+      return <img src={movie._embedded['wp:featuredmedia'][0].source_url} />;
+    }
+
+    return null;
   }
 
   public render() {
@@ -31,6 +43,7 @@ class Movie extends Component<IProps> {
 
     return (
       <Layout menu={this.props.headerMenu}>
+        {this.getImage(this.props.movie)}
         <h1>{this.props.movie.title.rendered}</h1>
         <h3>{this.props.movie.acf.release_year}</h3>
         <h3>{this.props.movie.acf.rating}</h3>
