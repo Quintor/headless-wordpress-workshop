@@ -15,21 +15,36 @@ class WordpressService {
 
   public getPost<T = {}>(
     apiRoute?: string | string[],
-    slug?: string | string[]
+    slug?: string | string[],
+    embed?: boolean
   ): Promise<IWpPost<T>> {
     const apiRouteQS = Array.isArray(apiRoute) ? apiRoute.join('/') : apiRoute;
     const slugQS = queryString.stringify({
       slug
     });
-    return fetch(`${Config.apiUrl}/wp-json/wp/v2/${apiRouteQS}?${slugQS}`)
+    return fetch(
+      `${Config.apiUrl}/wp-json/wp/v2/${apiRouteQS}?${
+        embed ? '_embed&' : ''
+      }${slugQS}`
+    )
       .then(res => res.json())
       .then(post => post[0]);
   }
 
-  public getPostByCategory(categoryId: number): Promise<IWpPost[]> {
-    return fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/posts?_embed&categories=${categoryId}`
-    ).then(res => res.json());
+  public async getPostByCategory(categoryId: number): Promise<IWpPost[]> {
+    const postUri = `${
+      Config.apiUrl
+    }/wp-json/wp/v2/posts?_embed&categories=${categoryId}`;
+    const moviesUri = `${
+      Config.apiUrl
+    }/wp-json/wp/v2/movies?_embed&categories=${categoryId}`;
+
+    const [posts, movies] = await Promise.all([
+      fetch(postUri).then(res => res.json()),
+      fetch(moviesUri).then(res => res.json())
+    ]);
+
+    return [...posts, ...movies];
   }
 
   public getPages(): Promise<IWpPage[]> {
