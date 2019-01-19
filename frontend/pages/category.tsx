@@ -33,9 +33,9 @@ class Category extends Component<IProps> {
 
     const posts =
       this.props.posts &&
-      this.props.posts.map((post, index) => {
+      this.props.posts.map(post => {
         return (
-          <ul key={index}>
+          <ul key={post.id}>
             <li>
               <Link
                 as={`/${post.type}/${post.slug}`}
