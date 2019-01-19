@@ -1,4 +1,4 @@
-export interface WpPost<T = {}> {
+export interface IWpPost<T = {}> {
   id: number;
   code: string;
   date: string;
@@ -38,13 +38,13 @@ export interface WpPost<T = {}> {
         href: string;
       }
     ];
-    "wp:featuredmedia": [
+    'wp:featuredmedia': [
       {
         embeddable: boolean;
         href: string;
       }
     ];
-    "wp:attachment": [
+    'wp:attachment': [
       {
         href: string;
       }

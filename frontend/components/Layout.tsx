@@ -1,6 +1,6 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import { FC } from "react";
+import { FC } from 'react';
+import Footer from './Footer';
+import Header from './Header';
 
 const layoutStyle = {
   margin: 20,

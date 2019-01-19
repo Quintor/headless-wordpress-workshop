@@ -1,35 +1,33 @@
-import Link from "next/link";
-import React, { Component } from "react";
-import Layout from "../components/Layout";
-import Menu from "../components/Menu";
-import PageWrapper from "../components/PageWrapper";
-import service from "../services/wordpress.service";
-import { WpMenuItem } from "../types/menu";
-import { WpPage } from "../types/page";
-import { WpPost } from "../types/post";
+import Link from 'next/link';
+import React, { Component } from 'react';
+import Layout from '../components/Layout';
+import Menu from '../components/Menu';
+import withPageMenu from '../components/PageWrapper';
+import service from '../services/wordpress.service';
+import { IWpMenu } from '../types/menu';
+import { IWpPage } from '../types/page';
+import { IWpPost } from '../types/post';
 
 const headerImageStyle = {
-  marginTop: 50,
-  marginBottom: 50
+  marginBottom: 50,
+  marginTop: 50
 };
 
 interface IProps {
-  pages: WpPage[];
-  posts: WpPost[];
-  headerMenu: {
-    items: WpMenuItem[];
-  };
+  pages: IWpPage[];
+  posts: IWpPost[];
+  headerMenu: IWpMenu;
 }
 
 class Index extends Component<IProps> {
-  static async getInitialProps() {
+  public static async getInitialProps() {
     const posts = await service.getPosts();
     const pages = await service.getPages();
 
     return { posts, pages };
   }
 
-  render() {
+  public render() {
     const posts = this.props.posts.map(post => {
       return (
         <ul key={post.id}>
@@ -77,4 +75,4 @@ class Index extends Component<IProps> {
   }
 }
 
-export default PageWrapper(Index);
+export default withPageMenu(Index);

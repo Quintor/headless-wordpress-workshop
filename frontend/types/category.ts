@@ -1,4 +1,4 @@
-export interface WpCategory {
+export interface IWpCategory {
   id: number;
   count: number;
   description: string;
@@ -25,7 +25,7 @@ export interface WpCategory {
         href: string;
       }
     ];
-    "wp:post_type": [
+    'wp:post_type': [
       {
         href: string;
       }

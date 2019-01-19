@@ -1,15 +1,15 @@
-import Layout from "../components/Layout";
-import React, { Component } from "react";
-import fetch from "isomorphic-unfetch";
-import Error from "next/error";
-import PageWrapper from "../components/PageWrapper";
-import Menu from "../components/Menu";
-import { Config } from "../config";
-import { WpMenu } from "../types/menu";
-import { WpPost } from "../types/post";
+import fetch from 'isomorphic-unfetch';
+import Error from 'next/error';
+import React, { Component } from 'react';
+import Layout from '../components/Layout';
+import Menu from '../components/Menu';
+import withPageMenu from '../components/PageWrapper';
+import { Config } from '../config';
+import { IWpMenu } from '../types/menu';
+import { IWpPost } from '../types/post';
 
 interface IProps {
-  headerMenu: WpMenu;
+  headerMenu: IWpMenu;
   url: {
     query: {
       id: number;
@@ -19,7 +19,7 @@ interface IProps {
 }
 
 interface IState {
-  post: WpPost | null;
+  post: IWpPost | null;
 }
 
 class Preview extends Component<IProps, IState> {
@@ -30,13 +30,13 @@ class Preview extends Component<IProps, IState> {
     };
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     const { id, wpnonce } = this.props.url.query;
     fetch(
       `${
         Config.apiUrl
       }/wp-json/postlight/v1/post/preview?id=${id}&_wpnonce=${wpnonce}`,
-      { credentials: "include" } // required for cookie nonce auth
+      { credentials: 'include' } // required for cookie nonce auth
     )
       .then(res => res.json())
       .then(res => {
@@ -46,21 +46,22 @@ class Preview extends Component<IProps, IState> {
       });
   }
 
-  render() {
+  public render() {
     if (
       this.state.post &&
       this.state.post.code &&
-      this.state.post.code === "rest_cookie_invalid_nonce"
-    )
+      this.state.post.code === 'rest_cookie_invalid_nonce'
+    ) {
       return <Error statusCode={404} />;
+    }
 
     return (
       <Layout>
         <Menu menu={this.props.headerMenu} />
-        <h1>{this.state.post ? this.state.post.title.rendered : ""}</h1>
+        <h1>{this.state.post ? this.state.post.title.rendered : ''}</h1>
         <div
           dangerouslySetInnerHTML={{
-            __html: this.state.post ? this.state.post.content.rendered : ""
+            __html: this.state.post ? this.state.post.content.rendered : ''
           }}
         />
       </Layout>
@@ -68,4 +69,4 @@ class Preview extends Component<IProps, IState> {
   }
 }
 
-export default PageWrapper(Preview);
+export default withPageMenu(Preview);

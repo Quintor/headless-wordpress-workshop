@@ -1,4 +1,4 @@
-export interface WpMenu {
+export interface IWpMenu {
   term_id: number;
   name: string;
   slug: string;
@@ -9,10 +9,10 @@ export interface WpMenu {
   parent: number;
   count: number;
   filter: string;
-  items: WpMenuItem[];
+  items: IWpMenuItem[];
 }
 
-export interface WpMenuItem {
+export interface IWpMenuItem {
   ID: number;
   post_author: string;
   post_date: string;

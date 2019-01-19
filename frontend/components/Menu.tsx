@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import { WpMenuItem } from "../types/menu";
+import Link from 'next/link';
+import React, { Component } from 'react';
+import { IWpMenuItem } from '../types/menu';
 
 const linkStyle = {
   marginRight: 15
@@ -8,19 +8,19 @@ const linkStyle = {
 
 interface IProps {
   menu: {
-    items: WpMenuItem[];
+    items: IWpMenuItem[];
   };
 }
 
 class Menu extends Component<IProps> {
-  getSlug(url: string) {
-    const parts = url.split("/");
-    return parts.length > 2 ? parts[parts.length - 2] : "";
+  public getSlug(url: string) {
+    const parts = url.split('/');
+    return parts.length > 2 ? parts[parts.length - 2] : '';
   }
 
-  render() {
+  public render() {
     const menuItems = this.props.menu.items.map(item => {
-      if (item.object === "custom") {
+      if (item.object === 'custom') {
         return (
           <Link href={item.url} key={item.ID}>
             <a style={linkStyle}>{item.title}</a>

@@ -1,6 +1,6 @@
-import Head from "next/head";
-import React from "react";
-import stylesheet from "../styles/style.scss";
+import Head from 'next/head';
+import React from 'react';
+import stylesheet from '../styles/style.scss';
 
 const Header = () => (
   <div>

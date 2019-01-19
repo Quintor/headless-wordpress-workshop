@@ -1,28 +1,28 @@
-import Error from "next/error";
-import React, { Component } from "react";
-import Layout from "../components/Layout";
-import Menu from "../components/Menu";
-import service from "../services/wordpress.service";
-import { WpMenuItem } from "../types/menu";
-import { WpPost } from "../types/post";
-import PageWrapper from "../components/PageWrapper";
+import Error from 'next/error';
+import React, { Component } from 'react';
+import Layout from '../components/Layout';
+import Menu from '../components/Menu';
+import withPageMenu from '../components/PageWrapper';
+import service from '../services/wordpress.service';
+import { IWpMenu } from '../types/menu';
+import { IWpPost } from '../types/post';
 
 interface IProps {
-  post: WpPost;
-  headerMenu: {
-    items: WpMenuItem[];
-  };
+  post: IWpPost;
+  headerMenu: IWpMenu;
 }
 
 class Post extends Component<IProps> {
-  static async getInitialProps(context: any) {
+  public static async getInitialProps(context: any) {
     const { slug, apiRoute } = context.query;
     const post = await service.getPost(apiRoute, slug);
     return { post };
   }
 
-  render() {
-    if (!this.props.post.title) return <Error statusCode={404} />;
+  public render() {
+    if (!this.props.post.title) {
+      return <Error statusCode={404} />;
+    }
 
     return (
       <Layout>
@@ -38,4 +38,4 @@ class Post extends Component<IProps> {
   }
 }
 
-export default PageWrapper(Post);
+export default withPageMenu(Post);

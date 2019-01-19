@@ -1,13 +1,15 @@
-import { ComponentType, Component } from "react";
-import service from "../services/wordpress.service";
+import { Component, ComponentType } from 'react';
+import service from '../services/wordpress.service';
+import { IWpMenu } from '../types/menu';
 
+type Omit<T, K extends string> = Pick<T, Exclude<keyof T, K>>;
 type WpComponentType<P = {}> = ComponentType<P> & {
-  getInitialProps?: Function;
+  getInitialProps?: (args?: any) => Promise<Omit<P, 'headerMenu'>>;
 };
 
-const PageWrapper = function<TProps>(Comp: WpComponentType<TProps>) {
-  return class extends Component<TProps> {
-    static async getInitialProps(args: any) {
+function withPageMenu<TProps>(Comp: WpComponentType<TProps>) {
+  return class extends Component<TProps & { headerMenu: IWpMenu }> {
+    public static async getInitialProps(args: any) {
       const headerMenu = await service.getMenu();
       return {
         headerMenu,
@@ -15,10 +17,10 @@ const PageWrapper = function<TProps>(Comp: WpComponentType<TProps>) {
       };
     }
 
-    render() {
+    public render() {
       return <Comp {...this.props} />;
     }
   };
-};
+}
 
-export default PageWrapper;
+export default withPageMenu;

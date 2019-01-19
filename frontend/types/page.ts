@@ -1,4 +1,4 @@
-export interface WpPage<T = {}> {
+export interface IWpPage<T = {}> {
   id: number;
   date: string;
   date_gmt: string;
@@ -59,19 +59,19 @@ export interface WpPage<T = {}> {
         href: string;
       }
     ];
-    "version-history": [
+    'version-history': [
       {
         count: number;
         href: string;
       }
     ];
-    "predecessor-version": [
+    'predecessor-version': [
       {
         id: number;
         href: string;
       }
     ];
-    "wp:attachment": [
+    'wp:attachment': [
       {
         href: string;
       }
