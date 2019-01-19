@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-unfetch';
+import queryString from 'query-string';
 import { Config } from '../config';
 import { IWpCategory } from '../types/category';
 import { IWpMenu } from '../types/menu';
@@ -12,8 +13,15 @@ class WordpressService {
     );
   }
 
-  public getPost<T = {}>(apiRoute: string, slug: string): Promise<IWpPost<T>> {
-    return fetch(`${Config.apiUrl}/wp-json/wp/v2/${apiRoute}?slug=${slug}`)
+  public getPost<T = {}>(
+    apiRoute?: string | string[],
+    slug?: string | string[]
+  ): Promise<IWpPost<T>> {
+    const apiRouteQS = Array.isArray(apiRoute) ? apiRoute.join('/') : apiRoute;
+    const slugQS = queryString.stringify({
+      slug
+    });
+    return fetch(`${Config.apiUrl}/wp-json/wp/v2/${apiRouteQS}?${slugQS}`)
       .then(res => res.json())
       .then(post => post[0]);
   }
@@ -30,8 +38,18 @@ class WordpressService {
     );
   }
 
-  public getCategories(slug: string): Promise<IWpCategory[]> {
-    return fetch(`${Config.apiUrl}/wp-json/wp/v2/categories?slug=${slug}`).then(
+  public getCategories(slug?: string | string[]): Promise<IWpCategory[]> {
+    if (slug != null) {
+      return Promise.resolve([]);
+    }
+    let slugQS: string;
+    if (Array.isArray(slug)) {
+      slugQS = slug.reduce((result, item) => `slug[]=${item}&${result}`, '');
+    } else {
+      slugQS = `slug=${slug}`;
+    }
+
+    return fetch(`${Config.apiUrl}/wp-json/wp/v2/categories?${slugQS}`).then(
       res => res.json()
     );
   }

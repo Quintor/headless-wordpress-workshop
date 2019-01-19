@@ -1,3 +1,4 @@
+import { NextContext } from 'next';
 import Error from 'next/error';
 import Link from 'next/link';
 import React, { Component } from 'react';
@@ -16,7 +17,7 @@ interface IOwnProps {
 type IProps = IOwnProps & IMenuProps;
 
 class Category extends Component<IProps> {
-  public static async getInitialProps(context: any) {
+  public static async getInitialProps(context: NextContext) {
     const { slug } = context.query;
     const categories = await service.getCategories(slug);
     if (categories.length > 0) {

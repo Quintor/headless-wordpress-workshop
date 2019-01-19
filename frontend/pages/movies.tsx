@@ -1,3 +1,4 @@
+import { NextContext } from 'next';
 import Error from 'next/error';
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
@@ -18,7 +19,7 @@ interface IOwnProps {
 type IProps = IOwnProps & IMenuProps;
 
 class Movie extends Component<IProps> {
-  public static async getInitialProps(context: any) {
+  public static async getInitialProps(context: NextContext) {
     const { slug, apiRoute } = context.query;
     const movie = await service.getPost<IMovieModel>(apiRoute, slug);
     return { movie };
