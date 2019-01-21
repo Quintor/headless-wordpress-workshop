@@ -1,13 +1,12 @@
 import { NextContext } from 'next';
 import Error from 'next/error';
-import Link from 'next/link';
-import React, { Component, FC } from 'react';
+import React, { Component } from 'react';
 import Layout from '../components/Layout';
+import PostLink from '../components/PostLink';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
 import { IWpCategory } from '../types/category';
 import { IWpPost } from '../types/post';
-import PostLink from '../components/PostLink';
 
 interface IOwnProps {
   categories: IWpCategory[];
