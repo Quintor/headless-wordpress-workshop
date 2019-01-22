@@ -57,8 +57,7 @@ Fire up your favorite API request tool (I like to use Postman) or a Terminal win
 When the installation process completes successfully, the WordPress REST API is available at <http://localhost:8081/wp-json/>:
 
 ```sh
-curl -H "Content-Type: application/json" http://localhost:8081/wp-json/wp/v2/movies/21?_embed
-curl -H "Content-Type: application/json" http://localhost:8081/wp-json/menus/v1/menus/header-menu
+curl -H "Content-Type: application/json" http://localhost:8081/wp-json/wp/v2/posts/1?_embed
 ```
 
 ### Step Three: Setup WP plugins for this project
@@ -97,13 +96,51 @@ Speaking in database terms, if CPTs are the tables, Custom Fields are the column
 
 Advanced Custom Fields (ACF) is the plugin for WordPress Custom Fields. Of course, you can create Custom Fields with PHP (just like CPTs), but ACF is such a time-saver (and it's a GUI 😇).
 
-If you want to use the import function to import the sample data. Go to [Custom Fields>Tools](http://127.0.0.1:8081/wp-admin/edit.php?post_type=acf-field-group&page=acf-tools). You can then import the following file: [./wordpress/import-data/acf-export-2019-01-22.json](./wordpress/import-data/acf-export-2019-01-22.json)
+Because the manual setup of ACF takes a while, we are going to use the import functionality 😉. Go to [Custom Fields>Tools](http://127.0.0.1:8081/wp-admin/edit.php?post_type=acf-field-group&page=acf-tools). You then import the following file: [./wordpress/import-data/acf-export-2019-01-22.json](./wordpress/import-data/acf-export-2019-01-22.json)
 
-If you don’t want to import, here’s how to setup your Custom Fields:
+After the import you should see `Movie Data` in _Custom Fields_:
 
-##### Create the Field Group
+![](./images/acf.png)
 
-ACF organizes collections of Custom Fields in Field Groups. This is domain-specific to ACF. That’s all you really need to know about Field Groups for now.
+#### [ACF to REST API](https://wordpress.org/plugins/acf-to-rest-api/)
+
+Now that we have our Custom Fields, we need to expose them to the WP-API. ACF doesn’t currently ship with WP-API support, but there’s a great plugin solution from the community called ACF to REST API. All you have to do is install and activate it (we have done this for you 😉), and it will immediately expose your ACF custom fields to the API.
+
+If we had created our Custom Fields directly via PHP (without the use of a plugin), there’s also a couple of nifty functions for exposing the field to the API. [More on that here](https://developer.wordpress.org/rest-api/extending-the-rest-api/modifying-responses/).
+
+### Step Four: Post Data Import
+
+First, we need to import all the Movies. Lucky for you, We already did all the manual work and all you have to do is import a nifty file. :-)
+
+Go to [Tools>Import](http://127.0.0.1:8081/wp-admin/admin.php?import=wordpress). You should see a link to run the importer. Click that and import this file: [./wordpress/import-data/wp-movies-page.xml](./wordpress/import-data/wp-movies-page.xml).
+
+The next screen will ask you to assign the imported posts to an author. You can just assign them to your default admin account and click Submit:
+
+![](./images/import.png)
+
+Lastly, go to [Movies>All Movies](&paged=1&trashed=8&ids=1433%2C21%2C20%2C19%2C18%2C17%2C16%2C15&locked=0). You should see a listing of Star Wars movies (Episodes 1–8)
+
+![](./images/movies-posts.png)
+
+### Step Five: Setup menu
+
+This is the last step to get our WordPress installation ready to serve our Star Wars data.
+
+We want our users enable to navigate through our awesome website. Luckily wordpress has us covered. Go to [Apprearance>Menus](http://127.0.0.1:8081/wp-admin/nav-menus.php).
+
+You can choose to create a menu manually or use the import tool. To import the menu navigate to [Tools>Import](http://127.0.0.1:8081/wp-admin/admin.php?import=wordpress) and use the following file [./wordpress/import-data/wp-menu.xml](./wordpress/import-data/wp-menu.xml)
+
+To create menu manually add the pages _"About Us, Over star wars"_ to the menu. Next click on _"Categories"_ in the accordion and the the three Star wars categories to the menu. You should also check _"Header Menu"_ in _"Display location"_. Don't forget to save 😇!
+
+![](./images/menu.png)
+
+We should also check if the menu appears in the WP Rest API
+
+```sh
+curl -H "Content-Type: application/json" http://localhost:8081/wp-json/menus/v1/menus/header-menu
+```
+
+Now you’re good to go! Now leave your WordPress server running and let’s move on.
 
 ## React Frontend
 
