@@ -18,9 +18,9 @@
 
 ## Even handjes in de modder 👌
 
-Presentatie: <http://headless-cms.quintor.info/>
+Wifi: QuintorGast / 0651493826
 
-Code: <a href="https://git.quintor.nl/staq/quintor-handson-sessies/tree/headless-cms" target="_blank">Quintor Gitlab</a>
+Code: <a href="https://git.quintor.nl/frontend-masterclass/wordpress" target="_blank">Quintor Gitlab</a>
 
 Op login pagina selecteer _Standaard_
 
@@ -30,13 +30,14 @@ Op login pagina selecteer _Standaard_
 | Password | <b>staquser</b> |
 
 ```sh
-git clone https://git.quintor.nl/staq/quintor-handson-sessies.git
-cd quintor-handson-sessies
-git checkout headless-cms
-git pull
+git clone https://git.quintor.nl/frontend-masterclass/wordpress.git
 
-cd assignment
-yarn install # or npm install
+# wordpress docker
+cd ./wordpress/wordpress
+docker-compose up
+
+cd ../frontend
+npm install
 ```
 
 ---
@@ -68,9 +69,9 @@ Enkele notities bij de introductie pagina zichtbaar in de presenter view
 
 > Can you use a "regular" CMS as a "headless" CMS?
 
-No problem most CMS like Drupal or Wordpress also support a headless approach <!-- .element: class="fragment" data-fragment-index="1" -->
+No problem most CMS's like Drupal or Wordpress also support a headless approach <!-- .element: class="fragment" data-fragment-index="1" -->
 
-For example <!-- .element: class="fragment" data-fragment-index="1" --> [Headlesss Wordpress with React](https://dev.to/jchiatt/headless-wordpress-with-react) <!-- .element: class="fragment" data-fragment-index="1" -->
+For example: <!-- .element: class="fragment" data-fragment-index="1" --> [Headless drupal](https://www.drupal.org/association/supporters/blog/implementation-guide-on-headless-and-decoupled-cms) <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
 
@@ -98,38 +99,36 @@ For example <!-- .element: class="fragment" data-fragment-index="1" --> [Headles
 
 <br><br>
 
-# Sitecore <!-- .element: class="bg" -->
+# Wordpress <!-- .element: class="bg" -->
 
 --
 
 <!-- .slide: class="center-img" -->
-<img src="images/sitecore-analytics.png"/>
+<img src="images/wordpress-themes.png"/>
 
 --
 
 <!-- .slide: class="center-img" -->
-<img src="images/sitecore-template.png" height="600"/>
+
+> &ldquo;WordPress is used by 59.9% of all the websites whose content management system we know. This is 32.9% of all websites.&rdquo;
+
+<https://w3techs.com/technologies/details/cm-wordpress/all/all>
 
 --
 
 <!-- .slide: class="center-img" -->
-<img src="images/sitecore-editor.png" height="600"/>
+
+## The brand new editor
+
+<img src="images/wordpress-gutenberg.png" style="background: #fff">
 
 ---
 
 <!-- .slide: class="center-img" -->
 
-## Sitecore Headless
+## Wordpress Headless
 
-<img src="images/sitecore-architecture.jpg">
-
----
-
-<!-- .slide: class="center-img" -->
-
-## Sitecore JSS
-
-<img src="images/sitecore-jss.png" style="background: #fff">
+<img src="images/wordpress-architecture.png">
 
 ---
 
@@ -179,11 +178,23 @@ For example <!-- .element: class="fragment" data-fragment-index="1" --> [Headles
 
 --
 
+<!-- .slide: data-background="#fff" -->
+
+## The stack
+
+| <img src="images/docker.svg" class="plain" width="500"> | <img src="images/wordpress.svg" class="plain" width="500"> | <img src="images/react.svg" class="plain" width="500"> | <img src="images/next-js.svg" class="plain" width="500"> |
+| :-----------------------------------------------------: | :--------------------------------------------------------: | :----------------------------------------------------: | :------------------------------------------------------: |
+|                         Docker                          |                         Wordpress                          |                         React                          |                         Next.js                          |
+
+<a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
+
+--
+
+<!-- .slide: class="center-img" -->
+
 ## Essent Proof of Concept 🦄
 
-<a href="https://innogy-sc-essent-test-239380-single.azurewebsites.net" target="_blank">Essent Proof of Concept</a>
-
-<a href="https://innogy-sc-essent-test-239380-single.azurewebsites.net/en?sc_mode=edit" target="_blank">Sitecore experience editor</a>
+<a href="https://prd-ssr-essent-de-open-consument.innogynederland.nl" target="_blank"><img src="./images/essent-example.png"/></a>
 
 ---
 
@@ -198,67 +209,7 @@ For example <!-- .element: class="fragment" data-fragment-index="1" --> [Headles
 
 ## En nu aan het werk 🔥
 
-### <a href="https://git.quintor.nl/staq/quintor-handson-sessies/tree/headless-cms/assignment" target="_blank">Opdrachten</a>
-
----
-
-## Assignment 1 - Exploration
-
-Explore the website, look through the code files.
-
-Change the values in content pages (`/data/routes`), make changes in components (`/src/app/components`) and see all these changes be reflected in the website!
-
----
-
-## Assignment 2 - Jumbotron
-
-In `/src/app/components` you can find the Jumbotron component, we're going to adjust the Jumbotron to fit our needs.
-
----
-
-## Assignment 3 - Placeholders
-
-Placeholders are a core concept in Sitecore: a placeholer is like a container in which you can put any kind of component. You can define a placeholder in a manifest like this:
-
-```typescript
-manifest.addComponent({
-    name: 'Component',
-    displayName: 'Display Name',
-    fields: [
-        ... fields ...
-    ],
-    placeholders: [
-        { name: 'a-placeholder' },
-    ],
-});
-```
-
----
-
-## Assignment 4 - Your own component
-
-Build your own component from start to finish! You can do anything you want, you have 15 minutes for this!
-
----
-
-## Assignment 5 - The final destination
-
-Create a content `blocks component` in which you can have different `content block` components (using placeholders), and those `content block` components can different smaller components defined in them (using placeholders). Create these smaller components:
-
-- Title text component
-- Intro text (rich text) component
-- Photo component
-- Button component
-
----
-
-## Assignment 6 - Bonus ✨
-
-Build a pricing component with [Angular Material](https://material.angular.io/components/categories).
-
-Some inspiraction for a pricing component
-
-- <a href="https://codepen.io/renanpupin/pen/EVWgyP" target="_blank">CodePen</a>
+### <a href="https://git.quintor.nl/frontend-masterclass/wordpress" target="_blank">Opdrachten</a>
 
 ---
 
