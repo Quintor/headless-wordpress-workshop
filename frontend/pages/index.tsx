@@ -8,8 +8,7 @@ import { IWpPage } from '../types/page';
 import { IWpPost } from '../types/post';
 
 const headerImageStyle = {
-  marginBottom: 50,
-  marginTop: 50
+  marginBottom: 50
 };
 
 interface IOwnProps {
@@ -39,7 +38,7 @@ class Index extends Component<IProps> {
     return (
       <Layout menu={this.props.headerMenu}>
         <img
-          src="/static/images/wordpress-plus-react-header.png"
+          src="/static/images/Star-wars-logo-new-tall.webp"
           width="815"
           style={headerImageStyle}
         />
