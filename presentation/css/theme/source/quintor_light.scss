@@ -1,0 +1,89 @@
+/**
+ * Quintor theme for reveal.js
+ * Author: Lammert Hellinga http://github.com/Kogelvis
+ *
+ * Designed to be used with highlight.js theme
+ * "monokai_sublime.css" available from
+ * https://github.com/isagalaev/highlight.js/
+ *
+ * For other themes, change $codeBackground accordingly.
+ *
+ */
+
+ // Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url("../../lib/font/agfa-rotis-semisans/agfa-rotis-semisans.css");
+
+// Colors used in the theme
+$quintor: #a13b4a;
+$coal: #eee;
+$codeBackground: #23241f;
+
+$backgroundColor: $coal;
+
+// Main text
+$mainFont: 'Agfa Rotis Semisans';
+$mainColor: #222;
+
+// Headings
+$headingFont: 'Agfa Rotis Semisans';
+$headingColor: #a13b4a;
+$headingTextShadow: 2px 2px 2px $coal;
+
+// Links
+$linkColor: $quintor;
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: $quintor;
+$selectionColor: #eee;
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// some overrides after theme template import
+
+.reveal p {
+    font-weight: 300;
+    text-shadow: 1px 1px $coal;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-weight: 700;
+}
+
+.reveal p code {
+    background-color: $codeBackground;
+    display: inline-block;
+    border-radius: 7px;
+}
+
+.reveal small code {
+    vertical-align: baseline;
+}
+
+body:after {
+    content: url(../../images/logo_big.png);
+    position: fixed;
+    top: 0em;
+    left: 3.5em;
+}
+
+body {
+    background-image: url(../../images/blokjes-inverted.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-attachment: fixed;
+    background-size: 25%;
+}

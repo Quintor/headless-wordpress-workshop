@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 'Agfa Rotis Semisans';
+	src: url('AgfaRotisSemisans.eot');
+	src: url('AgfaRotisSemisans.eot?#iefix') format('embedded-opentype'),
+		url('AgfaRotisSemisans.woff2') format('woff2'),
+		url('AgfaRotisSemisans.woff') format('woff'),
+		url('AgfaRotisSemisans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
