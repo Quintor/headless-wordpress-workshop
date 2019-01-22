@@ -152,11 +152,17 @@ There is a bare bones frontend project to start you off. In order to get it up a
 
 - This will start up a dev server on http://localhost:3000
 
-### Tech docs
+### Tips
 
-- [React](https://reactjs.org)
-- [Nextjs](https://nextjs.org)
-- [Typescript](https://www.typescriptlang.org/)
+React with Typescript:
+
+- [Typescript Handbook](https://www.typescriptlang.org/docs/home.html)
+- [React Typescript Cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet)
+- [Ultimate React Component Patterns with Typescript 2.8](https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935)
+
+Next js:
+
+- <https://nextjs.org/learn/>
 
 ## List of endpoints
 
@@ -280,41 +286,12 @@ Up untill now the menu has been static. Change the `Menu.tsx` component so that 
 - Add extra styling.
 - Assign categories to your posts, create a category page which shows posts of the selected category.
 
-## Outline
-
-- presenation about what & why headless cms
-- handson
-  - start wordpress with docker
-  - config custom post movies
-  - create custom fields
-  - add movies in wordpress
-  - check data in postman
-  - add postman test?
-  - setup frontend app
-  - Show a list of posts on the index page
-  - Implement getPost in services/wordpress.service.ts
-  - Add a post route + component
-  - Add a page route + component
-  - Make the header menu dynamic (see hoc/withHeaderMenu.ts)
-  - add styling (material?)
-- demo next level with sitecore jss
-- headless cms challenges check with Arjen, Kramp en Essent
-
-## Tips
-
-React Typescript:
-
-- [Ultimate React Component Patterns with Typescript 2.8](https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935)
-- [React Typescript Cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet)
+## Improvement ideas
 
 Wordpress headless:
 
-- <https://github.com/elevati/wp-api-multiple-posttype>
-- <https://react-etc.net/entry/graphql-and-next-js-for-building-wordpress-sites-with-react-js>
-
-Next js:
-
-- <https://nextjs.org/learn/>
+- [Support multi post type in rest api](https://github.com/elevati/wp-api-multiple-posttype)
+- [GraphQL](https://react-etc.net/entry/graphql-and-next-js-for-building-wordpress-sites-with-react-js)
 
 ## Examples in production
 
