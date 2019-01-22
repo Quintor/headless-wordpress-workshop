@@ -7,6 +7,10 @@
 @import url("https://fonts.googleapis.com/css?family=Abel");
 @import url("../../lib/font/antonio/antonio.css");
 
+section.has-light-background {
+  color: #222;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
