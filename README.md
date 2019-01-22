@@ -20,11 +20,19 @@ Let's get started.
 - yarn optional
 - postman optional
 
-## Wordpress Backend
+## Docker
 
 Before you install WordPress, make sure you have [Docker](https://www.docker.com) installed. On Linux, you might need to install [docker-compose](https://docs.docker.com/compose/install/#install-compose) separately.
 
-### Install
+## Onward!
+
+Okay, so now that we’ve established this awesome stack, let’s dive in!
+
+### What We’ll Be Building
+
+For this tutorial, we’ll be building a simple app that displays data about each of the Star Wars movies. The data will be supplied by a WordPress REST API we’ll build, and we’ll consume it with a React frontend built with Next.js
+
+### Step One: Create New WordPress Installation
 
 The following commands will get WordPress running on your machine using Docker, along with the WordPress plugins you'll need to create and serve custom data via the WP REST API.
 
@@ -32,23 +40,20 @@ The following commands will get WordPress running on your machine using Docker, 
 cd wordpress
 ```
 
-- start docker containers
+Start docker containers with docker compose
 
 ```sh
 docker-compose up
 ```
 
-- check if wordpress api is working / or use postman
+When the installation process completes successfully, the WordPress REST API is available at <http://localhost:8081/wp-json/>. You can use curl or postman to test the api:
 
 ```sh
 curl -H "Content-Type: application/json" http://localhost:8081/wp-json/wp/v2/movies/21?_embed
 curl -H "Content-Type: application/json" http://localhost:8081/wp-json/menus/v1/menus/header-menu
 ```
 
-When the installation process completes successfully:
-
-- The WordPress REST API is available at <http://localhost:8081>
-- The WordPress admin is at <http://localhost:8081/wp-admin/> default login credentials `admin` / `Quintor!`
+Once you have your new WordPress install set up, go ahead and visit your admin dashboard. The WordPress admin is available at <http://localhost:8081/wp-admin/> default login credentials `admin` / `Quintor!`
 
 ## React Frontend
 
