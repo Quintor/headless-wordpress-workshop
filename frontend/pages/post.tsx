@@ -1,6 +1,6 @@
 import { NextContext } from 'next';
 import Error from 'next/error';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Layout from '../components/Layout';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';

@@ -1,10 +1,6 @@
 import Link from 'next/link';
-import React, { Component, Fragment } from 'react';
+import { Component, Fragment } from 'react';
 import { IWpMenuItem } from '../types/menu';
-
-const linkStyle = {
-  marginRight: 15
-};
 
 interface IProps {
   menu: {
@@ -23,7 +19,7 @@ class Menu extends Component<IProps> {
       if (item.object === 'custom') {
         return (
           <Link href={item.url} key={item.ID}>
-            <a style={linkStyle}>{item.title}</a>
+            <a className="link">{item.title}</a>
           </Link>
         );
       }
@@ -35,7 +31,7 @@ class Menu extends Component<IProps> {
           href={`/${item.object}?slug=${slug}&apiRoute=${item.object}`}
           key={item.ID}
         >
-          <a style={linkStyle}>{item.title}</a>
+          <a className="link">{item.title}</a>
         </Link>
       );
     });
@@ -44,11 +40,14 @@ class Menu extends Component<IProps> {
       <Fragment>
         <nav className="nav">
           <Link href="/">
-            <a style={linkStyle}>Home</a>
+            <a className="link">Home</a>
           </Link>
           {menuItems}
         </nav>
         <style jsx={true}>{`
+          .link {
+            margin-right: 15px;
+          }
           .nav {
             padding: 20px;
             background-color: whitesmoke;
