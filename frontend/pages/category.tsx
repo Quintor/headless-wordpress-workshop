@@ -33,7 +33,11 @@ class Category extends Component<IProps> {
 
     const posts =
       this.props.posts &&
-      this.props.posts.map(post => <PostLink key={post.id} post={post} />);
+      this.props.posts.map(post => (
+        <li key={post.id}>
+          <PostLink post={post} />
+        </li>
+      ));
     return (
       <Layout menu={this.props.headerMenu}>
         <h1>{this.props.categories[0].name} Posts</h1>

@@ -52,24 +52,19 @@ When the installation process completes successfully:
 
 ## React Frontend
 
-- `cd ../`
-- `npx create-react-app frontend`
+There is a bare bones frontend project to start you off. In order to get it up and running use the following commands.
+
 - `cd frontend`
-- Add typescript
+- `npm install`
+- `npm run dev`
 
-  ```sh
-  npm install --save typescript @types/node @types/react @types/react-dom @types/jest
-  # or
-  yarn add typescript @types/node @types/react @types/react-dom @types/jest
-  ```
+- This will start up a dev server on http://localhost:3000
 
-- Install dependencies and start
+### Tech docs
 
-  ```sh
-  npm install && npm start
-  ```
-
-- Enjoy Star Wars movies!
+- [React](https://reactjs.org)
+- [Nextjs](https://nextjs.org)
+- [Typescript](https://www.typescriptlang.org/)
 
 ## Outline
 
