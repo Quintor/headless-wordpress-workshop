@@ -13,7 +13,7 @@ class WordpressService {
     );
   }
 
-  public getPost<T = {}>(
+  public getPostOrPage<T = {}>(
     apiRoute?: string | string[],
     slug?: string | string[],
     embed?: boolean
@@ -23,12 +23,19 @@ class WordpressService {
       slug
     });
     return fetch(
-      `${Config.apiUrl}/wp-json/wp/v2/${apiRouteQS}?${
+      `${Config.apiUrl}/wp-json/headless/v1/${apiRouteQS}?${
         embed ? '_embed&' : ''
       }${slugQS}`
-    )
+    ).then(res => res.json());
+  }
+
+  public getMovie<T = {}>(slug?: string | string[]): Promise<IWpPost<T>> {
+    const slugQS = queryString.stringify({
+      slug
+    });
+    return fetch(`${Config.apiUrl}/wp-json/wp/v2/movies?_embed&${slugQS}`)
       .then(res => res.json())
-      .then(post => post[0]);
+      .then(movies => movies[0]);
   }
 
   public async getPostByCategory(categoryId: number): Promise<IWpPost[]> {

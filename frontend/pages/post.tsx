@@ -15,7 +15,7 @@ type IProps = IOwnProps & IMenuProps;
 class Post extends Component<IProps> {
   public static async getInitialProps(context: NextContext) {
     const { slug, apiRoute } = context.query;
-    const post = await service.getPost(apiRoute, slug);
+    const post = await service.getPostOrPage(apiRoute, slug);
     return { post };
   }
 

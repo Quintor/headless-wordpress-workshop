@@ -19,8 +19,8 @@ type IProps = IOwnProps & IMenuProps;
 
 class Movie extends Component<IProps> {
   public static async getInitialProps(context: NextContext) {
-    const { slug, apiRoute } = context.query;
-    const movie = await service.getPost<IMovieModel>(apiRoute, slug, true);
+    const { slug } = context.query;
+    const movie = await service.getMovie<IMovieModel>(slug);
     return { movie };
   }
 
