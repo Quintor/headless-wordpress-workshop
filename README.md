@@ -1,5 +1,29 @@
 # Headless WordPress with react
 
+verbeter ideeen:
+
+- stukje wordpress, stukje react
+  - voeg/bewerk data in wordpress (prepare)
+    - import
+  - breid react gedeelte uit (develop)
+    - code
+  - om en om (extend)
+    - handmatig data in wordpress uitbreiden
+- afwisseling tussen workshoppen en presentatie
+  - wordpress toelichten
+  - react toelichten
+    - class based
+    - render method
+    - getInitialProps method
+    - jsx
+    - components in components
+    - layout component uitleggen
+- example case beter toelichten
+  - screenshot van pagina met componenten er op
+- categories uitwerken
+- header en layout opdracht stapgewijs uitwerken
+- 1 optie geven bij import of manual
+
 ## What's inside
 
 - A WordPress installation with:
@@ -190,7 +214,7 @@ List example
 render() {
   return (
     <ul>
-      {this.props.posts.map(post => <li key={post.id}>{post.title}</li>)}
+      {this.props.posts.map(post => <li key={post.id}>{post.title.rendered}</li>)}
     </ul>
   )
 }
@@ -273,7 +297,9 @@ Add a menu item linking to one of your pages.
 
 - Implement the `getPages` and `getPage` method in the API service.
 
-### 3. Creating a dynamic menu
+### 4. Creating a dynamic menu
+
+> Needs more detailed steps
 
 Up untill now the menu has been static. Change the `Menu.tsx` component so that the menu can be managed in wordpress.
 
@@ -282,11 +308,16 @@ Up untill now the menu has been static. Change the `Menu.tsx` component so that 
 - Have a look at `hoc/withHeaderMenu`, see how you can use this with your existing components in the pages directory.
 - The main menu can be managed in wordpress under `Appearance -> Menus`
 
-### 4. Extra assigments
+### 5. Extra assigments
 
-- Create a page for your own post type.
-- Add extra styling.
+> Verder uitwerken
+
 - Assign categories to your posts, create a category page which shows posts of the selected category.
+- ingelogt niet ingelogd
+  - fake wordpress login?
+  - edit post?
+- personalisation
+  - localstore?
 
 ## Improvement ideas
 
