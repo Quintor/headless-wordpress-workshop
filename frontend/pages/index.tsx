@@ -24,11 +24,15 @@ class Index extends Component<IProps> {
 
   public render() {
     const posts = this.props.posts.map(post => (
-      <PostLink key={post.id} post={post} apiRoute="post" />
+      <li key={post.id}>
+        <PostLink post={post} apiRoute="post" />
+      </li>
     ));
 
     const pages = this.props.pages.map(page => (
-      <PostLink key={page.id} post={page} apiRoute="page" />
+      <li key={page.id}>
+        <PostLink post={page} apiRoute="page" />
+      </li>
     ));
 
     return (

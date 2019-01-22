@@ -7,14 +7,12 @@ const PostLink: FC<{ post: IWpPost | IWpPage; apiRoute?: string }> = ({
   post,
   apiRoute
 }) => (
-  <li>
-    <Link
-      as={`/${post.type}/${post.slug}`}
-      href={`/${post.type}?slug=${post.slug}&apiRoute=${apiRoute || post.type}`}
-    >
-      <a>{post.title.rendered}</a>
-    </Link>
-  </li>
+  <Link
+    as={`/${post.type}/${post.slug}`}
+    href={`/${post.type}?slug=${post.slug}&apiRoute=${apiRoute || post.type}`}
+  >
+    <a>{post.title.rendered}</a>
+  </Link>
 );
 
 export default PostLink;
