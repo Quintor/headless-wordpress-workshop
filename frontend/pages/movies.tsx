@@ -1,10 +1,9 @@
 import { NextContext } from 'next';
 import Error from 'next/error';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Layout from '../components/Layout';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
-import styles from '../styles/movie.scss';
 import { IWpPost } from '../types/post';
 
 interface IMovieModel {
@@ -32,10 +31,19 @@ class Movie extends Component<IProps> {
       movie._embedded['wp:featuredmedia'].length > 0
     ) {
       return (
-        <img
-          className={styles.image}
-          src={movie._embedded['wp:featuredmedia'][0].source_url}
-        />
+        <Fragment>
+          <img
+            className="image"
+            src={movie._embedded['wp:featuredmedia'][0].source_url}
+          />
+          <style jsx={true}>
+            {`
+              .image {
+                width: 100%;
+              }
+            `}
+          </style>
+        </Fragment>
       );
     }
 

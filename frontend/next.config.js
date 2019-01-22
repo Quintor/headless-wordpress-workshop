@@ -1,7 +1,7 @@
-const withPlugins = require("next-compose-plugins");
-const withSass = require("@zeit/next-sass");
-const withTs = require("@zeit/next-typescript");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const withPlugins = require('next-compose-plugins');
+const withSass = require('@zeit/next-sass');
+const withTs = require('@zeit/next-typescript');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const webpackConfig = {
   webpack: function(config, options) {
@@ -14,8 +14,6 @@ const webpackConfig = {
   }
 };
 
-const sassConfig = {
-  cssModules: true
-};
+const sassConfig = {};
 
 module.exports = withPlugins([[withTs, webpackConfig], [withSass, sassConfig]]);

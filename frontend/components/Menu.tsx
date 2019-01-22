@@ -45,9 +45,6 @@ class Menu extends Component<IProps> {
           {menuItems}
         </nav>
         <style jsx={true}>{`
-          .link {
-            margin-right: 15px;
-          }
           .nav {
             padding: 20px;
             background-color: whitesmoke;
