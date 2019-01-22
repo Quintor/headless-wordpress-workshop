@@ -7,10 +7,6 @@ import styles from '../styles/index.scss';
 import { IWpPage } from '../types/page';
 import { IWpPost } from '../types/post';
 
-const headerImageStyle = {
-  marginBottom: 50
-};
-
 interface IOwnProps {
   pages: IWpPage[];
   posts: IWpPost[];
@@ -37,17 +33,31 @@ class Index extends Component<IProps> {
 
     return (
       <Layout menu={this.props.headerMenu}>
-        <img
-          src="/static/images/Star-wars-logo-new-tall.webp"
-          width="815"
-          style={headerImageStyle}
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet="/static/images/Star-wars-logo-new-tall.webp"
+          />
+          <source
+            type="image/png"
+            srcSet="/static/images/Star-wars-logo-new-tall.png"
+          />
+          <img
+            className="headerImageStyle"
+            src="/static/images/Star-wars-logo-new-tall.png"
+          />
+        </picture>
         <h1>Hello</h1>
         <p className={styles.example}>World</p>
         <h2>Posts</h2>
         <ul>{posts}</ul>
         <h2>Pages</h2>
         <ul>{pages}</ul>
+        <style jsx={true}>{`
+          .headerImageStyle {
+            margin-bottom: 50px;
+          }
+        `}</style>
       </Layout>
     );
   }
