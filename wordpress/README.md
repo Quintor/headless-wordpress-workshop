@@ -2,10 +2,11 @@
 
 Based on Wordpres 5 with following plugins installed:
 
-    * Advanced Custom Fields
-    * CPT UI
-    * ACF TO REST
-    * wp-rest-api-v2-menus
+- Advanced Custom Fields
+- CPT UI
+- ACF TO REST
+- wp-rest-api-v2-menus
+- headless wordpress theme
 
 ## Starting a new project
 
@@ -87,3 +88,37 @@ This way you can use the CLI command above as follows:
 ```sh
 wp plugin list
 ```
+
+## Import / Export
+
+## CPT UI
+
+Import [CPT Movies Data](./import-data/cpt-movies-export.json) on the [Custom Post Type UI Tools](http://127.0.0.1:8081/wp-admin/admin.php?page=cptui_tools) page.
+
+On this page you can also export your CPT configuration.
+
+### ACF
+
+Import [ACF export](./import-data/acf-export-2019-01-22.json) on the [Advanced Custom Fields Tools](http://127.0.0.1:8081/wp-admin/edit.php?post_type=acf-field-group&page=acf-tools) page.
+
+On this page you can also export your ACF configuration.
+
+### Movies & Pages
+
+#### Import
+
+You can choose between import though the interface or with the wp-cli
+
+- [Wordpress import](http://127.0.0.1:8081/wp-admin/admin.php?import=wordpress)
+- `cp ./import-data/wp-movies-page.xml ./wp-app/ && docker-compose run --rm wpcli import ./wp-movies-page.xml --authors=skip`
+  - more info on [import command](https://developer.wordpress.org/cli/commands/import/)
+
+#### Export
+
+Export `docker-compose run --rm wpcli export --skip_comments --post_type=movies,page` , more info on [export command](https://developer.wordpress.org/cli/commands/export/)
+
+### Menu
+
+Import `cp ./import-data/wp-menu.xml ./wp-app/ && docker-compose run -rm wpcli import ./wp-menu.xml --authors=skip`
+
+Export `docker-compose run --rm wpcli export --post_type=nav_menu_item --post_status=publish`
