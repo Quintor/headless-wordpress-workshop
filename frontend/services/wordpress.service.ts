@@ -6,15 +6,23 @@ import { IWpPost } from '../types/post';
 
 class WordpressService {
   public getPosts(): Promise<IWpPost[]> {
-    return fetch(`${Config.apiUrl}/wp-json/wp/v2/posts?_embed`).then(res =>
-      res.json()
-    );
+    // TODO Get posts from API
+    return Promise.resolve([] as any);
   }
 
   public getPages(): Promise<IWpPage[]> {
-    return fetch(`${Config.apiUrl}/wp-json/wp/v2/pages?_embed`).then(res =>
-      res.json()
-    );
+    // TODO Get pages from API
+    return Promise.resolve([] as any);
+  }
+
+  public getPost(slug: string): Promise<IWpPost> {
+    // TODO Get post by slug from API
+    return Promise.resolve({} as any);
+  }
+
+  public getPage(slug: string): Promise<IWpPage> {
+    // TODO Get page by slug from API
+    return Promise.resolve({} as any);
   }
 
   public getMenu(): Promise<IWpMenu> {

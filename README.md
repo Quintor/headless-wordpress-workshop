@@ -66,6 +66,128 @@ There is a bare bones frontend project to start you off. In order to get it up a
 - [Nextjs](https://nextjs.org)
 - [Typescript](https://www.typescriptlang.org/)
 
+## List of endpoints
+
+- /wp-json/wp/v2/posts (list of all posts)
+- /wp-json/wp/v2/pages (list of all pages)
+- /wp-json/wp/v2/categories (list of all categories)
+- /wp-json/menus/v1/menus/header-menu
+- /wp-json/headless/v1/post?slug= (find single post by slug)
+- /wp-json/headless/v1/page?slug= (find single post by slug)
+
+## Frontend assignments
+
+### 1. Listing Posts
+
+To start off we will display a list of posts in the `index.tsx` component. Whatever you return from the `getInitialProps` method is included in `this.props` in the component. There is an API service shell in `wordpress.service.ts` which can be expanded.
+
+- Implement `getPosts` in the API service\
+- Use the API service to return posts from `getInitialProps`
+- Display the posts in a simple list
+
+List example
+
+```ts
+// Rest of component code in index.tsx
+render() {
+  return (
+    <ul>
+      {this.props.posts.map(post => <li key={post.id}>{post.title}</li>)}
+    </ul>
+  )
+}
+```
+
+### 2. Displayings Posts
+
+Now that we have a list of posts on our main page, we want to be able to navigate to a page with further details. Create a `page.tsx`. Paste the following code in this file:
+
+```ts
+import { NextContext } from "next";
+import Error from "next/error";
+import { Component } from "react";
+import Layout from "../components/Layout";
+import { IMenuProps } from "../hoc/withHeaderMenu";
+import API from "../services/wordpress.service";
+import { IWpPost } from "../types/post";
+
+interface IOwnProps {
+  post: IWpPost;
+}
+
+type IProps = IOwnProps & IMenuProps;
+
+class Post extends Component<IProps> {
+  public static async getInitialProps(context: NextContext) {
+    const { slug } = context.query;
+
+    const post = await API.getPost(slug as string);
+    return { post };
+  }
+
+  public render() {
+    if (!this.props.post.title) {
+      return <Error statusCode={404} />;
+    }
+
+    return (
+      <Layout>
+        <h1>{this.props.post.title.rendered}</h1>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: this.props.post.content.rendered
+          }}
+        />
+      </Layout>
+    );
+  }
+}
+export default Post;
+```
+
+- Implement the `getPost` method in the API service.
+- The first parameter of `getInitialProps` is a context, this allowes you to get query string values through `context.query`. In `index.tsx` change your list items into links to this new page.
+
+Example link:
+
+```ts
+import Link from 'next/link';
+
+  <Link
+    as="/post/post-slug"
+    href="/post?slug=post-slug"}
+  >
+    <a>My Post</a>
+  </Link>
+
+```
+
+You can find more information on Nextjs routing [here](https://github.com/zeit/next.js/#routing).
+
+### 3. Displayings Pages
+
+Besides posts wordpress has the build-in content-type pages. Create a `page.tsx` in the pages directory, this page should display the details of a page. Follow the same method you did to implements posts.
+Add a menu item linking to one of your pages.
+
+**Tips**
+
+- Implement the `getPages` and `getPage` method in the API service.
+
+### 3. Creating a dynamic menu
+
+Up untill now the menu has been static. Change the `Menu.tsx` component so that the menu can be managed in wordpress.
+
+**Tips**
+
+- Have a look at `hoc/withHeaderMenu`, see how you can use this with your existing components in the pages directory.
+- The main menu can be managed in wordpress under `Appearance -> Menus`
+
+### 4. Extra assigments
+
+- Create a page for your own post type.
+- Add extra styling.
+- Assign categories to your posts, create a category page which shows posts of the selected category.
+
 ## Outline
 
 - presenation about what & why headless cms
@@ -78,10 +200,10 @@ There is a bare bones frontend project to start you off. In order to get it up a
   - add postman test?
   - setup frontend app
   - Show a list of posts on the index page
+  - Implement getPost in services/wordpress.service.ts
   - Add a post route + component
-  - Make the header menu dynamic ()
-  - Add a component and route for your custom
-  - Add categories
+  - Add a page route + component
+  - Make the header menu dynamic (see hoc/withHeaderMenu.ts)
   - add styling (material?)
 - demo next level with sitecore jss
 - headless cms challenges check with Arjen, Kramp en Essent
