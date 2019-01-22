@@ -59,6 +59,16 @@ Use **-v** if you need to remove the database volume which is used to persist th
 docker-compose down -v
 ```
 
+### The uploaded file could not be moved to wp-content/uploads
+
+<https://github.com/docker-library/wordpress/issues/162>
+
+```sh
+docker-compose exec wp /bin/bash
+## in the containter
+chown -R www-data:www-data ./wp-content/uploads
+```
+
 ## Creating database dumps
 
 ```sh
