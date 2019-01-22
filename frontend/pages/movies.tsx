@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
 import service from '../services/wordpress.service';
-import { IWpPost } from '../types/post';
 import styles from '../styles/movie.scss';
+import { IWpPost } from '../types/post';
 
 interface IMovieModel {
   rating: string;

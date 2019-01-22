@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 import Error from 'next/error';
 import { WithRouterProps } from 'next/router';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Layout from '../components/Layout';
 import { Config } from '../config';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';

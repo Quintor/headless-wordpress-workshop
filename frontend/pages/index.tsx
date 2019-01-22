@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Layout from '../components/Layout';
 import PostLink from '../components/PostLink';
 import withHeaderMenu, { IMenuProps } from '../hoc/withHeaderMenu';
