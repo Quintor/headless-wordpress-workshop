@@ -198,7 +198,7 @@ render() {
 
 ### 2. Displayings Posts
 
-Now that we have a list of posts on our main page, we want to be able to navigate to a page with further details. Create a `page.tsx`. Paste the following code in this file:
+Now that we have a list of posts on our main page, we want to be able to navigate to a page with further details. Create a `Post.tsx` in de _pages_ folder. Paste the following code in this file:
 
 ```ts
 import { NextContext } from "next";
@@ -261,6 +261,8 @@ import Link from 'next/link';
 ```
 
 You can find more information on Nextjs routing [here](https://github.com/zeit/next.js/#routing).
+
+Learn more about `<Link as` in [Clean URLs with Route Masking](https://nextjs.org/learn/basics/clean-urls-with-route-masking)
 
 ### 3. Displayings Pages
 
