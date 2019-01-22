@@ -1,3 +1,5 @@
+// tslint:disable:no-console
+
 import * as express from 'express';
 import * as next from 'next';
 
@@ -22,12 +24,6 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
-    server.get('/movies/:slug', (req, res) => {
-      const actualPage = '/movies';
-      const queryParams = { slug: req.params.slug, apiRoute: 'movies' };
-      app.render(req, res, actualPage, queryParams);
-    });
-
     server.get('/category/:slug', (req, res) => {
       const actualPage = '/category';
       const queryParams = { slug: req.params.slug };
@@ -45,7 +41,9 @@ app
     });
 
     server.listen(3000, (err: any) => {
-      if (err) throw err;
+      if (err) {
+        throw err;
+      }
       console.log('> Ready on http://localhost:3000');
     });
   })

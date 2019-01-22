@@ -76,11 +76,12 @@ There is a bare bones frontend project to start you off. In order to get it up a
   - add movies in wordpress
   - check data in postman
   - add postman test?
-  - create react app
-    - add typescript (optional?)
-  - add add api call
-  - show simple list
-  - create movie component
+  - setup frontend app
+  - Show a list of posts on the index page
+  - Add a post route + component
+  - Make the header menu dynamic ()
+  - Add a component and route for your custom
+  - Add categories
   - add styling (material?)
 - demo next level with sitecore jss
 - headless cms challenges check with Arjen, Kramp en Essent

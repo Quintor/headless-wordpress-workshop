@@ -11,8 +11,8 @@ interface ILayoutProps {
 const Layout: FC<ILayoutProps> = ({ children, menu }) => (
   <Fragment>
     <div className="container">
+      <Menu menu={menu} />
       <Header />
-      {menu && <Menu menu={menu} />}
       <main>{children}</main>
       <Footer />
     </div>
