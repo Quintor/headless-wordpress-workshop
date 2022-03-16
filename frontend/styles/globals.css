@@ -1,16 +1,28 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import '~modern-normalize';
+@import '~@wordpress/block-library/build-style/style.css';
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
+html {
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial,
+    sans-serif;
+}
+* {
+  box-sizing: inherit;
+}
+body {
+  background-color: #fff;
+}
+h1,
+h2 {
+  color: #000;
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+}
+
+.link {
+  margin-right: 15px;
 }

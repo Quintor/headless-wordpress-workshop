@@ -48,7 +48,7 @@ Let's get started.
 
 Before you install WordPress, make sure you have [Docker](https://www.docker.com) installed. On Linux, you might need to install [docker-compose](https://docs.docker.com/compose/install/#install-compose) separately.
 
-## Onward!
+## Onward
 
 Okay, so now that we’ve established this awesome stack, let’s dive in!
 
@@ -174,7 +174,7 @@ There is a bare bones frontend project to start you off. In order to get it up a
 - `npm install`
 - `npm run dev`
 
-- This will start up a dev server on http://localhost:3000
+- This will start up a dev server on <http://localhost:3000>
 
 ### Tips
 
@@ -201,7 +201,7 @@ Next js:
 
 ### 1. Listing Posts
 
-To start off we will display a list of posts in the `index.tsx` component. Whatever you return from the `getInitialProps` method is included in `this.props` in the component. There is an API service shell in `wordpress.service.ts` which can be expanded.
+To start off we will display a list of posts in the `index.tsx` component. Whatever you return from the `getInitialProps` method is included in `this.props` in the component. There is an API service shell in `wordpress.service.ts` which will be expanded.
 
 - Implement `getPosts` in the API service\
 - Use the API service to return posts from `getInitialProps`
@@ -301,7 +301,7 @@ Add a menu item linking to one of your pages.
 
 > Needs more detailed steps
 
-Up untill now the menu has been static. Change the `Menu.tsx` component so that the menu can be managed in wordpress.
+Up until now the menu has been static. Change the `Menu.tsx` component so that the menu can be managed in wordpress.
 
 **Tips**
 
