@@ -16,22 +16,30 @@ Copy the files from this repository into a blank folder. In the **docker-compose
 Make sure to add your user to the docker group when using linux:
 <https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user>
 
-##### Create containers
+## Configuration
 
-Open a terminal and _cd_ to the folder you have the docker-compose.yml and run:
+Edit the `.env` file to change the default IP address, MySQL root password and WordPress database name.
+
+## Installation
+
+Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved and run:
 
 ```sh
 docker-compose up
 ```
 
-This create 2 new folders beside your docker-compose.yml file.
+This creates two new folders next to your `docker-compose.yml` file.
 
-- **wp-data** - used to store and restore database dumps
-- **wp-app** - the location of your Wordpress application
+- `wp-data` – used to store and restore database dumps
+- `wp-app` – the location of your WordPress application
 
-The containers are now build and running. You should be able to access the Wordpress installation with the configured IP in the browser address. For convenience you may add a new entry into your hosts file.
+The containers are now built and running. You should be able to access the WordPress installation with the configured IP in the browser address. By default it is `http://127.0.0.1:8081`.
 
-##### Starting containers
+For convenience you may add a new entry into your hosts file.
+
+## Usage
+
+### Starting containers
 
 You can start the containers with the up command in daemon mode (by adding **-d** as a param) or by using the start command:
 
@@ -39,13 +47,13 @@ You can start the containers with the up command in daemon mode (by adding **-d*
 docker-compose start
 ```
 
-##### Stopping containers
+### Stopping containers
 
 ```sh
 docker-compose stop
 ```
 
-##### Remove containers
+### Remove containers
 
 To stop and remove all the containers use the **down** command
 
@@ -79,9 +87,15 @@ chown -R www-data:www-data ./wp-content/uploads
 
 ## WP CLI
 
-The docker compose configuration also provides a service for using the [Wordpress CLI](https://developer.wordpress.org/cli/commands/).
+The docker compose configuration also provides a service for using the [WordPress CLI](https://developer.wordpress.org/cli/commands/).
 
-Sample command:
+Sample command to install WordPress:
+
+```sh
+docker-compose run --rm wpcli core install --url=http://localhost --title=test --admin_user=admin --admin_email=test@example.com
+```
+
+Or to list installed plugins:
 
 ```sh
 docker-compose run --rm wpcli plugin list
@@ -98,6 +112,12 @@ This way you can use the CLI command above as follows:
 ```sh
 wp plugin list
 ```
+
+## phpMyAdmin
+
+You can also visit `http://127.0.0.1:8080` to access phpMyAdmin after starting the containers.
+
+The default username is `root`, and the password is the same as supplied in the `.env` file.
 
 ## Import / Export
 
