@@ -21,9 +21,11 @@ export interface IWpPost<T = {}> {
   };
   featured_media: number;
   template: string;
+  tags: number[];
+  categories: number[];
   acf: T;
   _embedded?: {
-    'wp:featuredmedia': { source_url: string }[];
+    "wp:featuredmedia": { source_url: string }[];
   };
   _links: {
     self: [
@@ -41,13 +43,13 @@ export interface IWpPost<T = {}> {
         href: string;
       }
     ];
-    'wp:featuredmedia': [
+    "wp:featuredmedia": [
       {
         embeddable: boolean;
         href: string;
       }
     ];
-    'wp:attachment': [
+    "wp:attachment": [
       {
         href: string;
       }

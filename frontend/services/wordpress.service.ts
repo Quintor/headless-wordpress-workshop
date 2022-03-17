@@ -82,6 +82,14 @@ class WordpressService {
     }
   }
 
+  public async getCategory(id: number): Promise<IWpCategory | undefined> {
+    try {
+      return fetchAPI(`/wp-json/wp/v2/categories/${id}`);
+    } catch (e) {
+      return;
+    }
+  }
+
   public async getMenu(): Promise<IWpMenu> {
     return fetchAPI("/wp-json/menus/v1/menus/header-menu");
   }

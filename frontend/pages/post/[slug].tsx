@@ -7,14 +7,17 @@ import { IWpPost } from "../../types/post";
 import service from "../../services/wordpress.service";
 import ErrorPage from "next/error";
 import Head from "next/head";
+import { IWpCategory } from "../../types/category";
+import Link from "next/link";
 
 interface IOwnProps {
   post: IWpPost;
+  categories: IWpCategory[];
 }
 
 type IProps = IOwnProps & IMenuProps;
 
-const Post: NextPage<IProps> = ({ post, menu }) => {
+const Post: NextPage<IProps> = ({ post, categories, menu }) => {
   const router = useRouter();
 
   if ((!router.isFallback && !post?.slug) || !post) {
@@ -40,7 +43,12 @@ const Post: NextPage<IProps> = ({ post, menu }) => {
           }}
         />
         <footer>
-          {/* link to categories */}
+          Categories: 
+          {categories.map((cat) => (
+            <Link key={cat.id} href={`/category/${cat.slug}`}>
+              <a>{cat.name}</a>
+            </Link>
+          ))}
         </footer>
       </article>
     </Layout>
@@ -54,8 +62,14 @@ export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
   const menu = await getMenu();
   const post = await service.getPost(params?.slug);
 
+  const categories = await (
+    await Promise.all(
+      post.categories.map((category) => service.getCategory(category))
+    )
+  ).filter((cat): cat is IWpCategory => cat != null);
+
   // Pass data data to the page via props
-  return { props: { post, ...menu } };
+  return { props: { post, categories, ...menu } };
 };
 
 export const getStaticPaths: GetStaticPaths = async ({}) => {
