@@ -8,6 +8,7 @@
     "publicly_queryable": "true",
     "show_ui": "true",
     "show_in_nav_menus": "true",
+    "delete_with_user": "false",
     "show_in_rest": "true",
     "rest_base": "movies",
     "rest_controller_class": "",
@@ -24,7 +25,7 @@
     "menu_position": "",
     "show_in_menu": "true",
     "show_in_menu_string": "",
-    "menu_icon": "",
+    "menu_icon": "dashicons-video-alt2",
     "supports": ["title", "editor", "thumbnail"],
     "taxonomies": ["category"],
     "labels": {
@@ -51,7 +52,12 @@
       "items_list_navigation": "",
       "items_list": "",
       "attributes": "",
-      "name_admin_bar": ""
+      "name_admin_bar": "",
+      "item_published": "",
+      "item_published_privately": "",
+      "item_reverted_to_draft": "",
+      "item_scheduled": "",
+      "item_updated": ""
     },
     "custom_supports": ""
   }
