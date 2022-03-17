@@ -58,12 +58,15 @@ export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
   const categories = await service.getCategories();
   const postsInCategoriesResponses = categories.map(async (category) => ({
     categoryId: category.id,
-    posts: await service.getTypeByCategory("posts", category.id),
+    posts: await Promise.all([
+      service.getTypeByCategory("posts", category.id),
+      service.getTypeByCategory("movies", category.id),
+    ]),
   }));
   const postsInCategories = await Promise.all(postsInCategoriesResponses);
   const posts: { [key: number]: IWpPost[] } = {};
   for (const postsInCategory of postsInCategories) {
-    posts[postsInCategory.categoryId] = postsInCategory.posts;
+    posts[postsInCategory.categoryId] = postsInCategory.posts.flat();
   }
 
   return { props: { categories, posts, ...menu } };

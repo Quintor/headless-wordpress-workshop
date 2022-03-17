@@ -54,7 +54,9 @@ class WordpressService {
     slugs: string | string[] = ""
   ): Promise<IWpPost<T>> {
     const slug = getSlug(slugs);
-    return fetchAPI(`/wp-json/headless/v1/movies?_embed&slug=${slug}`);
+    const movies = await fetchAPI(`/wp-json/wp/v2/movies?_embed&slug=${slug}`);
+    // querying all movies for slug, result is an array
+    return movies[0];
   }
 
   public async getPage(slugs: string | string[] = ""): Promise<IWpPage> {

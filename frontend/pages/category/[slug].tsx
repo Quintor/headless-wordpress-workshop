@@ -47,7 +47,9 @@ export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
   const menu = await getMenu();
   const categories = await service.getCategories(params?.slug);
   const category = categories[0];
-  const posts = await service.getTypeByCategory("posts", category.id);
+  const moviesCat = service.getTypeByCategory("movies", category.id);
+  const postsCat = service.getTypeByCategory("posts", category.id);
+  const posts = (await Promise.all([moviesCat, postsCat])).flat();
 
   return { props: { category, posts, ...menu } };
 };
