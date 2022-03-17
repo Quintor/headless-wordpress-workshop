@@ -1,14 +1,14 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import ErrorPage from "next/error";
+import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import { IMenuProps } from "../../components/Menu";
 import { getMenu } from "../../services/menu.service";
-import { IWpPost } from "../../types/post";
 import service from "../../services/wordpress.service";
-import ErrorPage from "next/error";
-import Head from "next/head";
 import { IWpCategory } from "../../types/category";
-import Link from "next/link";
+import { IWpPost } from "../../types/post";
 
 interface IOwnProps {
   post: IWpPost;

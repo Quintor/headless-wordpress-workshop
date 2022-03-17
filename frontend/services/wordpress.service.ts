@@ -61,8 +61,7 @@ class WordpressService {
 
   public async getPage(slugs: string | string[] = ""): Promise<IWpPage> {
     const slug = getSlug(slugs);
-    // TODO Get page by slug from API
-    return Promise.resolve({} as any);
+    return fetchAPI(`/wp-json/headless/v1/page?_embed&slug=${slug}`);
   }
 
   public async getTypeByCategory(
