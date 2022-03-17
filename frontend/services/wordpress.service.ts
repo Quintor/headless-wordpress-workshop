@@ -1,8 +1,9 @@
-import fetch from 'isomorphic-unfetch';
-import { Config } from '../config';
-import { IWpMenu } from '../types/menu';
-import { IWpPage } from '../types/page';
-import { IWpPost } from '../types/post';
+import fetch from "isomorphic-unfetch";
+import { Config } from "../config";
+import { IWpMenu } from "../types/menu";
+import { IWpPage } from "../types/page";
+import { IWpPost } from "../types/post";
+import { JSONAPIError } from "./JSONAPIError";
 
 class WordpressService {
   public async getPosts(): Promise<IWpPost[]> {
@@ -26,9 +27,20 @@ class WordpressService {
   }
 
   public async getMenu(): Promise<IWpMenu> {
-    return fetch(`${Config.apiUrl}/wp-json/menus/v1/menus/header-menu`).then(
-      res => res.json()
+    const response = await fetch(
+      `${Config.apiUrl}/wp-json/menus/v1/menus/header-menu`,
+      {
+        headers: {
+          Accept: "application/json",
+        },
+      }
     );
+    if (!response.ok) {
+      // convert non-2xx HTTP responses into errors:
+      const error = new JSONAPIError(response.statusText, response);
+      return Promise.reject(error);
+    }
+    return response.json();
   }
 }
 
