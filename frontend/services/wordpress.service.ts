@@ -1,8 +1,10 @@
 import fetch from "isomorphic-unfetch";
 import { Config } from "../config";
+import { IWpCategory } from "../types/category";
 import { IWpMenu } from "../types/menu";
 import { IWpPage } from "../types/page";
 import { IWpPost } from "../types/post";
+import { WpCategoryTypes } from "../types/wp-types";
 import { JSONAPIError } from "./JSONAPIError";
 
 async function fetchAPI(url: string) {
@@ -59,6 +61,25 @@ class WordpressService {
     const slug = getSlug(slugs);
     // TODO Get page by slug from API
     return Promise.resolve({} as any);
+  }
+
+  public async getTypeByCategory(
+    type: WpCategoryTypes,
+    categoryId: number
+  ): Promise<IWpPost[]> {
+    return fetchAPI(`/wp-json/wp/v2/${type}?_embed&categories=${categoryId}`);
+  }
+
+  public async getCategories(
+    slugs: string | string[] = ""
+  ): Promise<IWpCategory[]> {
+    const slug = getSlug(slugs);
+    const slugQS = `${slug ? `slug=${slug}` : ""}`;
+    try {
+      return fetchAPI(`/wp-json/wp/v2/categories?${slugQS}`);
+    } catch (e) {
+      return [];
+    }
   }
 
   public async getMenu(): Promise<IWpMenu> {
