@@ -6,7 +6,7 @@ export async function getMenu(): Promise<IMenuProps> {
   try {
     result = { menu: await service.getMenu() };
   } catch (e) {
-    console.warn(`Failed to load menu`, e);
+    console.warn(`Failed to load menu`);
   }
   return result;
 }

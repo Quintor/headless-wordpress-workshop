@@ -22,7 +22,7 @@ const Home: NextPage<IProps> = (props) => {
 
 // This gets called at build time
 export const getStaticProps: GetStaticProps<IProps> = async (context) => {
-  const menu = getMenu();
+  const menu = await getMenu();
 
   // Pass data data to the page via props
   return { props: { title: "Hello Headless CMS!", ...menu } };

@@ -23,8 +23,7 @@ export default function Menu({ menu }: IMenuProps) {
     const slug = getSlug(item.url);
     return (
       <Link
-        as={`/${item.object}/${slug}`}
-        href={`/${item.object}?slug=${slug}&apiRoute=${item.object}`}
+        href={`/${item.object}/${slug}`}
         key={item.ID}
       >
         <a className="link">{item.title}</a>
