@@ -4,16 +4,11 @@ import { IWpPost } from "../types/post";
 
 export default function PostLink({
   post,
-  apiRoute,
 }: {
   post: IWpPost | IWpPage;
-  apiRoute?: string;
 }) {
   return (
-    <Link
-      as={`/${post.type}/${post.slug}`}
-      href={`/${post.type}?slug=${post.slug}&apiRoute=${apiRoute || post.type}`}
-    >
+    <Link href={`/${post.type}/${post.slug}`}>
       <a>{post.title.rendered}</a>
     </Link>
   );
