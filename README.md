@@ -74,8 +74,18 @@ Fire up your favorite API request tool (I like to use Postman) or a Terminal win
 
 When the installation process completes successfully, the WordPress REST API is available at <http://localhost:8081/wp-json/>:
 
+Git Bash or bash:
 ```sh
 curl -H "Content-Type: application/json" http://localhost:8081/wp-json/wp/v2/posts/1?_embed
+```
+
+PowerShell:
+```sh
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Accept", "application/json")
+
+$response = Invoke-RestMethod 'http://localhost:8081/wp-json/wp/v2/posts/1?_embed' -Method 'GET' -Headers $headers
+$response | ConvertTo-Json
 ```
 
 ### List of WP endpoints
