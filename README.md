@@ -38,11 +38,13 @@ Let's get started.
 ## Prerequisites
 
 - vscode / webstorm
-- docker
+- docker desktop
 - node 14, npm 6
 - postman optional
 
 ## Docker
+
+> New to docker? [Read the Docker introduction](./docker-intro.md)
 
 Before you install WordPress, make sure you have [Docker](https://www.docker.com) installed. On Linux, you might need to install [docker-compose](https://docs.docker.com/compose/install/#install-compose) separately.
 
@@ -58,7 +60,18 @@ git clone https://github.com/Quintor/headless-wordpress-workshop.git
 
 For this tutorial, we’ll be building a simple app that displays data about each of the Star Wars movies. The data will be supplied by a WordPress REST API we’ll build, and we’ll consume it with a React frontend built with Next.js
 
+![Homepage](./images/homepage.png)
+_Homepage_
+
+![Category page](./images/category-page.png)
+_Category page_
+
+![Movie page](./images/movies-page.png)
+_Movie page_
+
 ### Step One: Start the WordPress Installation
+
+> New to Wordpress? [Read the Wordpress introduction](./wordpress-intro.md)
 
 The following commands will get WordPress running on your machine using Docker, along with the WordPress plugins you'll need to create and serve custom data via the WP REST API.
 
@@ -170,6 +183,8 @@ Now you’re good to go! Now leave your WordPress server running and let’s mov
 
 ## React Frontend
 
+> New to React? [Read the React introduction](./react-intro.md)
+
 There is a bare bones frontend project to start you off. In order to get it up and running use the following commands.
 
 ```sh
@@ -180,19 +195,26 @@ npm run dev
 
 - This will start up a dev server on <http://localhost:3000>
 
-### Tips
+### React with Typescript
 
-React with Typescript:
+> New to Typescript? [Read the Typescript introduction](./typescript-intro.md)
+
+Documentation for how to use Typescript with React:
 
 - [Typescript Handbook](https://www.typescriptlang.org/docs/home.html)
 - [React Typescript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup)
 - [React & Redux in TypeScript](https://github.com/piotrwitek/react-redux-typescript-guide#react--redux-in-typescript---complete-guide)
 
-Next js:
+### NextJS
+
+> New to NextJS? [Read the NextJS introduction](./nextjs-intro.md)
+
+Documentation:
 
 - <https://nextjs.org/learn/>
+- <https://nextjs.org/docs/getting-started>
 
-## List of endpoints
+## List of wp endpoints
 
 - `/wp-json/wp/v2/posts` (list of all posts)
 - `/wp-json/wp/v2/pages` (list of all pages)
@@ -323,31 +345,13 @@ Up until now the menu has been static. Change the `Menu.tsx` component so that t
 - personalisation
   - localstore?
 
-## Improvement ideas
-
-Wordpress headless:
-
-- [Support multi post type in rest api](https://github.com/elevati/wp-api-multiple-posttype)
-- [GraphQL](https://react-etc.net/entry/graphql-and-next-js-for-building-wordpress-sites-with-react-js)
-
-## Examples in production
-
-Wordpress & Next js:
-
-- <https://www.worldcentralkitchen.org>
-- <https://dinendash.info>
-
-Next js:
-
-- <https://spectrum.chat/next-js?thread=e425a8b6-c9cb-4cd1-90bb-740fb3bd7541>
-
 ## Troubleshooting
 
 ## Docker hub mirror
 
 > Note: As of November 1, 2020, [Docker Hub rate limits](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) apply to unauthenticated or authenticated pull requests on the Docker Free plan.
 
-https://cloud.google.com/container-registry/docs/pulling-cached-images#docker-ui
+Add google cloud mirror to fix docker pull limit: <https://cloud.google.com/container-registry/docs/pulling-cached-images#docker-ui>
 
 ### Windows & docker volumes
 
