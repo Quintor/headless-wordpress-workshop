@@ -6,19 +6,74 @@
 
 ## Even voorstellen 🤝
 
-<br>
+#### Henk Bakker
 
-| <img src="images/henk.jpg" width="300"/> |
-| :---------------------------------------: |
-|              Henk Bakker <br>[@spike1292](https://twitter.com/spike1292)<br> <https://henkbakker.net>  |
+<div class="columns two">
+  <div class="left">
+    <img src="images/henk.jpg" style="max-height: none" height="300px">
+  </div>
+  <div class="right">
+    <ul>
+      <li>Consultant @ Quintor</li>
+      <li>Twitter: <a href="https://twitter.com/spike1292">@spike1292</a></li>
+      <li>Email: <a href="mailto:h.bakker@quintor.nl">h.bakker@quintor.nl</a></li>
+    </ul>
+  </div>
+</div>
+
+---
+
+<img src="images/logo.png" style="max-height: none; border:0; background: transparent; box-shadow: none" height="100px">
+
+<div class="columns two">
+  <div class="left">
+    <ul>
+      <li>Java</li>
+      <li>.Net</li>
+      <li>Frontend</li>
+      <li>Platform Engineering</li>
+      <li>Security</li>
+      <li>Agile Analyse</li>
+    </ul>
+
+  </div>
+  <div class="right">
+     <ul>
+      <li>Den Haag</li>
+      <li>Den Bosch</li>
+      <li>Amersfoort</li>
+      <li>Deventer</li>
+      <li>Groningen</li>
+    </ul>
+  </div>
+</div>
+<br/>
+<a href="https://quintor.nl/">https://quintor.nl/</a>
+
+---
+
+<img src="images/logo.png" style="max-height: none; border:0; background: transparent; box-shadow: none" height="100px">
+
+- Minor Cloud-Native Software Development
+  - <https://quintor.nl/minors/>
+- Afstuderen bij Quintor
+  - <https://quintor.nl/student/>
+- Young Professional Programma
+  - <https://quintor.nl/young-professional/>
+
+---
+
+## Programma
+
+- Theorie
+- Demo
+- Hands-on opdracht
 
 ---
 
 ## Even handjes in de modder 👌
 
-Wifi: ?
-
-Code: <a href="https://github.com/quintor/headless-wordpress-workshop" target="_blank">Quintor Github</a>
+Code: <https://github.com/quintor/headless-wordpress-workshop>
 
 ```sh
 git clone https://github.com/quintor/headless-wordpress-workshop.git
@@ -159,7 +214,7 @@ Written in react 😉 <!-- .element: class="fragment" -->
 | :-----------------------------------------------------: | :--------------------------------------------------------: | :----------------------------------------------------: | :------------------------------------------------------: |
 |                         Docker                          |                         Wordpress                          |                         React                          |                         Next.js                          |
 
-<a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
+<a href="<<<<http://localhost:3000>>>>" target="_blank">http://localhost:3000</a>
 
 ---
 
@@ -177,7 +232,7 @@ Written in react 😉 <!-- .element: class="fragment" -->
 
 <!-- .slide: data-background="./images/rocks-background.jpg", data-background-transition="slide" class="dark-background dark-overlay" -->
 
-# Headless Wordpress Rocks!
+# Headless Wordpress Rocks
 
 ---
 

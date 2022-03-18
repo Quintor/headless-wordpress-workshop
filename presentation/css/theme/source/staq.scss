@@ -129,3 +129,70 @@ body:after {
 .reveal .timetable .smaller {
   font-size: 0.8em;
 }
+
+// Columns
+
+.columns {
+  display: grid !important;
+  grid-gap: 1rem;
+  align-items: start;
+}
+
+.columns pre {
+  margin: unset;
+  width: unset;
+}
+
+.columns pre code {
+  width: 100%;
+  height: 100%;
+}
+
+.columns.two {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "left right";
+}
+
+.columns.three {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "left middle right";
+}
+
+.columns.four {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "left left-middle right-middle right";
+}
+
+.columns > * {
+  display: block !important;
+}
+
+.columns > .left {
+  grid-area: left;
+}
+
+.columns > .right {
+  grid-area: right;
+}
+
+.columns > .middle {
+  grid-area: middle;
+}
+
+.columns > .middle.left {
+  grid-area: left-middle;
+}
+
+.columns > .middle.right {
+  grid-area: right-middle;
+}
+
+.columns.four > .middle {
+  grid-area: unset;
+  grid-column: span 2;
+}
+
+.columns > [data-span="2"] {
+  grid-area: unset;
+  grid-column: span 2;
+}

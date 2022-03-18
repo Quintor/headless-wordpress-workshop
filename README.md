@@ -343,6 +343,12 @@ Next js:
 
 ## Troubleshooting
 
+## Docker hub mirror
+
+> Note: As of November 1, 2020, [Docker Hub rate limits](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) apply to unauthenticated or authenticated pull requests on the Docker Free plan.
+
+https://cloud.google.com/container-registry/docs/pulling-cached-images#docker-ui
+
 ### Windows & docker volumes
 
 - If on a windows machine plugins aren't loaded in Wordpress, follow these steps:
