@@ -43,7 +43,7 @@ const Post: NextPage<IProps> = ({ post, categories, menu }) => {
           }}
         />
         <footer>
-          Categories: 
+          Categories:
           {categories.map((cat) => (
             <Link key={cat.id} href={`/category/${cat.slug}`}>
               <a>{cat.name}</a>
