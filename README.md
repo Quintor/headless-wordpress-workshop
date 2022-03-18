@@ -1,28 +1,5 @@
 # Headless WordPress with react
 
-verbeter ideeen:
-
-- stukje wordpress, stukje react
-  - voeg/bewerk data in wordpress (prepare)
-    - import
-  - breid react gedeelte uit (develop)
-    - code
-  - om en om (extend)
-    - handmatig data in wordpress uitbreiden
-- afwisseling tussen workshoppen en presentatie
-  - wordpress toelichten
-  - react toelichten
-    - render method
-    - getInitialProps method
-    - jsx
-    - components in components
-    - layout component uitleggen <https://nextjs.org/docs/basic-features/layouts>
-- example case beter toelichten
-  - screenshot van pagina met componenten er op
-- categories uitwerken
-- header en layout opdracht stapgewijs uitwerken
-- 1 optie geven bij import of manual
-
 ## What's inside
 
 - A WordPress installation with:
