@@ -158,27 +158,29 @@ We already prepared some react components for you to work with in the `frontend/
 
 To start off we will display a list of posts in the `index.tsx` component. Whatever you return from the [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) function is included in `props` in the component. There is an API service shell in `wordpress.service.ts` which will be expanded.
 
-- Implement `getPosts` in the wordpress service
+- Implement `getPosts` in `services/wordpress.service.ts`
+  - There is an example implementation in `getMenu`
 - Use the API service to return posts from `getStaticProps`
-- Display the posts in a simple list
+  - `await service.getPosts()`
+  - add result to props
+  - add posts type to `IOwnProps`
+- Display the posts in a simple list:
 
-List example
-
-```tsx
-...
-const Home: NextPage<IProps> = (props) => {
-  return (
-    <Layout menu={props.menu}>
-      <h1>{props.title}</h1>
-      <Image src={starWarsLogo} alt="Star Wars Logo" />
-      <ul>
-        {props.posts.map(post => <li key={post.id}>{post.title.rendered}</li>)}
-      </ul>
-    </Layout>
-  );
-};
-...
-```
+  ```tsx
+  ...
+  const Home: NextPage<IProps> = (props) => {
+    return (
+      <Layout menu={props.menu}>
+        <h1>{props.title}</h1>
+        <Image src={starWarsLogo} alt="Star Wars Logo" />
+        <ul>
+          {props.posts.map(post => <li key={post.id}>{post.title.rendered}</li>)}
+        </ul>
+      </Layout>
+    );
+  };
+  ...
+  ```
 
 ## Step Four: Displaying Posts
 
@@ -256,10 +258,14 @@ export const getStaticPaths: GetStaticPaths = async ({}) => {
 ```
 
 - Implement the `getPost` method in the API service.
-- The first parameter of `getStaticProps` is a context, this allowes you to get query string values through `context.query`. In `index.tsx` change your list items into links to this new page.
+- The first parameter of `getStaticProps` is a context, this allowes you to get query string values through `context.query`.
 - `getStaticPaths` will be explained when we setup pages.
 
-Example link:
+### Improve posts on homepage with links
+
+In `index.tsx` change your list items into links to this new page.
+
+Example link, adjust this example to implement `post.slug` and `post.title.rendered`:
 
 ```ts
 import Link from 'next/link';
@@ -653,6 +659,8 @@ Create a category index which shows all the categories and there posts and movie
 Possible errors:
 
 - `context deadline exceeded`
+-
+-
 - ```
   Error response from daemon: pull access denied for wordpress, repository does not exist or may require ‘docker login’:   
   denied: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit
