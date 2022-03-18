@@ -608,6 +608,17 @@ When you open a movie you should see the following:
 
 ![Movie](./images/movies-page.png)
 
+## Bonus Step: Link to categories on a post
+
+Create a link to a category on a post page
+
+![All categories](./images/post.png)
+
+**Tips**:
+
+- add the categories page to the wordpress menu with a custom link: `/category`
+- don't forget to query the `posts` and `movies` endpoints
+
 ## Bonus Step: Show categories overview
 
 Create a category index which shows all the categories and there posts and movies
