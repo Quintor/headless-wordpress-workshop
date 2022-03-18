@@ -12,12 +12,11 @@ verbeter ideeen:
 - afwisseling tussen workshoppen en presentatie
   - wordpress toelichten
   - react toelichten
-    - class based
     - render method
     - getInitialProps method
     - jsx
     - components in components
-    - layout component uitleggen
+    - layout component uitleggen <https://nextjs.org/docs/basic-features/layouts>
 - example case beter toelichten
   - screenshot van pagina met componenten er op
 - categories uitwerken
@@ -40,8 +39,7 @@ Let's get started.
 
 - vscode / webstorm
 - docker
-- node 10, npm 6
-- yarn optional
+- node 14, npm 6
 - postman optional
 
 ## Docker
@@ -51,6 +49,10 @@ Before you install WordPress, make sure you have [Docker](https://www.docker.com
 ## Onward
 
 Okay, so now that we’ve established this awesome stack, let’s dive in!
+
+```sh
+git clone https://github.com/Quintor/headless-wordpress-workshop.git
+```
 
 ### What We’ll Be Building
 
@@ -152,7 +154,7 @@ This is the last step to get our WordPress installation ready to serve our Star 
 
 We want our users enable to navigate through our awesome website. Luckily wordpress has us covered. Go to [Apprearance>Menus](http://127.0.0.1:8081/wp-admin/nav-menus.php).
 
-You can choose to create a menu manually or use the import tool. To import the menu navigate to [Tools>Import](http://127.0.0.1:8081/wp-admin/admin.php?import=wordpress) and use the following file [./wordpress/import-data/wp-menu.xml](./wordpress/import-data/wp-menu.xml)
+> You can choose to create a menu manually or use the import tool. To import the menu navigate to [Tools>Import](http://127.0.0.1:8081/wp-admin/admin.php?import=wordpress) and use the following file [./wordpress/import-data/wp-menu.xml](./wordpress/import-data/wp-menu.xml)
 
 To create menu manually add the pages _"About Us, Over star wars"_ to the menu. Next click on _"Categories"_ in the accordion and the the three Star wars categories to the menu. You should also check _"Header Menu"_ in _"Display location"_. Don't forget to save 😇!
 
@@ -170,9 +172,11 @@ Now you’re good to go! Now leave your WordPress server running and let’s mov
 
 There is a bare bones frontend project to start you off. In order to get it up and running use the following commands.
 
-- `cd frontend`
-- `npm install`
-- `npm run dev`
+```sh
+cd frontend
+npm install
+npm run dev
+```
 
 - This will start up a dev server on <http://localhost:3000>
 
@@ -181,8 +185,8 @@ There is a bare bones frontend project to start you off. In order to get it up a
 React with Typescript:
 
 - [Typescript Handbook](https://www.typescriptlang.org/docs/home.html)
-- [React Typescript Cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet)
-- [Ultimate React Component Patterns with Typescript 2.8](https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935)
+- [React Typescript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup)
+- [React & Redux in TypeScript](https://github.com/piotrwitek/react-redux-typescript-guide#react--redux-in-typescript---complete-guide)
 
 Next js:
 
@@ -190,12 +194,12 @@ Next js:
 
 ## List of endpoints
 
-- /wp-json/wp/v2/posts (list of all posts)
-- /wp-json/wp/v2/pages (list of all pages)
-- /wp-json/wp/v2/categories (list of all categories)
-- /wp-json/menus/v1/menus/header-menu
-- /wp-json/headless/v1/post?slug= (find single post by slug)
-- /wp-json/headless/v1/page?slug= (find single post by slug)
+- `/wp-json/wp/v2/posts` (list of all posts)
+- `/wp-json/wp/v2/pages` (list of all pages)
+- `/wp-json/wp/v2/categories` (list of all categories)
+- `/wp-json/menus/v1/menus/header-menu`
+- `/wp-json/headless/v1/post?slug=` (find single post by slug)
+- `/wp-json/headless/v1/page?slug=` (find single post by slug)
 
 ## Frontend assignments
 
