@@ -16,6 +16,7 @@ Let's get started.
 
 - vscode / webstorm
 - docker desktop
+  - on windows install [wsl](https://docs.microsoft.com/en-us/windows/wsl/)
 - node 14, npm 6
 - postman optional
 
@@ -659,6 +660,8 @@ Create a category index which shows all the categories and there posts and movie
 Possible errors:
 
 - `context deadline exceeded`
+-
+-
 -
 -
 - ```
