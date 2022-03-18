@@ -25,16 +25,6 @@ Let's get started.
 
 Before you install WordPress, make sure you have [Docker](https://www.docker.com) installed. On Linux, you might need to install [docker-compose](https://docs.docker.com/compose/install/#install-compose) separately.
 
-## Onward
-
-Okay, so now that we’ve established this awesome stack, let’s dive in!
-
-```sh
-git clone https://github.com/Quintor/headless-wordpress-workshop.git
-```
-
-> If you are stuck you can take a look a the result branch to continue
-
 ## What We’ll Be Building
 
 For this tutorial, we’ll be building a simple app that displays data about each of the Star Wars movies. The data will be supplied by a WordPress REST API we’ll build, and we’ll consume it with a React frontend built with Next.js
@@ -47,6 +37,16 @@ _Category page_
 
 ![Movie page](./images/movies-page.png)
 _Movie page_
+
+## Onward
+
+Okay, so now that we’ve established this awesome stack, let’s dive in!
+
+```sh
+git clone https://github.com/Quintor/headless-wordpress-workshop.git
+```
+
+> If you are stuck you can take a look a the result branch to continue
 
 ## Step One: Start the WordPress Installation
 
@@ -64,6 +64,8 @@ Start docker containers with docker compose
 docker-compose up
 ```
 
+> Having docker or docker-compose issues? Check [Docker troubleshooting](#docker-troubleshooting) if there is a possible solution
+
 Once you have your new WordPress install set up, go ahead and visit your admin dashboard. The WordPress admin is available at <http://localhost:8081/wp-admin/> default login credentials `admin` / `Quintor!`
 
 ![Look at that fancy new install! ✨](./images/dashboard.png)
@@ -75,11 +77,13 @@ Fire up your favorite API request tool (I like to use Postman) or a Terminal win
 When the installation process completes successfully, the WordPress REST API is available at <http://localhost:8081/wp-json/>:
 
 Git Bash or bash:
+
 ```sh
 curl -H "Content-Type: application/json" http://localhost:8081/wp-json/wp/v2/posts/1?_embed
 ```
 
 PowerShell:
+
 ```sh
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Accept", "application/json")
