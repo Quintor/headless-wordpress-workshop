@@ -33,7 +33,7 @@
       <li>Frontend</li>
       <li>Platform Engineering</li>
       <li>Security</li>
-      <li>Agile Analyse</li>
+      <li>Informatie Analyse</li>
     </ul>
 
   </div>
