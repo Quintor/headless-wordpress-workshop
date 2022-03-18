@@ -650,7 +650,17 @@ Create a category index which shows all the categories and there posts and movie
 
 > Note: As of November 1, 2020, [Docker Hub rate limits](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) apply to unauthenticated or authenticated pull requests on the Docker Free plan.
 
+Possible errors:
+
+- `context deadline exceeded`
+- ```
+  Error response from daemon: pull access denied for wordpress, repository does not exist or may require ‘docker login’:   
+  denied: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit
+  ```
+
 Add google cloud mirror to fix docker pull limit: <https://cloud.google.com/container-registry/docs/pulling-cached-images#docker-ui>
+
+Restart docker and run `docker-compose pull` in the `wordpress` folder
 
 ### Windows & docker volumes
 
