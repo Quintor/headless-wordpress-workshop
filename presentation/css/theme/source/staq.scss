@@ -24,6 +24,7 @@ $backgroundColor: #fff;
 
 $mainColor: #222;
 $headingColor: #222;
+$quintorBackground: #181D27;
 
 $mainFontSize: 42px;
 $mainFont: "Source Sans Pro", Helvetica, sans-serif;
@@ -49,6 +50,10 @@ $heading4Size: 1em;
 // ---------------------------------------------
 
 // some overrides after theme template import
+
+.quintor-background {
+  background-color: $quintorBackground;
+}
 
 .dark-background,
 .dark-background h1,

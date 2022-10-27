@@ -17,7 +17,7 @@ Let's get started.
 - vscode / webstorm
 - docker desktop
   - on windows install [wsl](https://docs.microsoft.com/en-us/windows/wsl/)
-- node 14, npm 6
+- node 16, npm 8
 - postman optional
 
 ## Docker
