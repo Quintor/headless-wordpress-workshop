@@ -6,6 +6,7 @@
             "key": "field_5980ce89ef6ec",
             "label": "Release Year",
             "name": "release_year",
+            "aria-label": "",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -27,6 +28,7 @@
             "key": "field_5980cea7ef6ed",
             "label": "Rating",
             "name": "rating",
+            "aria-label": "",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -48,6 +50,7 @@
             "key": "field_5980cebaef6ee",
             "label": "Description",
             "name": "description",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -82,5 +85,5 @@
     "active": true,
     "description": "",
     "show_in_rest": false,
-    "modified": 1647558356
+    "modified": 1666864039
 }
