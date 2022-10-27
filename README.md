@@ -93,6 +93,8 @@ $response = Invoke-RestMethod 'http://localhost:8081/wp-json/wp/v2/posts/1?_embe
 $response | ConvertTo-Json
 ```
 
+> You can see the database with [phpMyAdmin](http://localhost:8080/). Login with user `root` and password `password`.
+
 ### List of WP endpoints
 
 [Wordpress Rest API Handbook](https://developer.wordpress.org/rest-api)
@@ -333,11 +335,11 @@ Go to [Tools>Import](http://127.0.0.1:8081/wp-admin/admin.php?import=wordpress).
 
 The next screen will ask you to assign the imported posts to an author. You can just assign them to your default admin account and click Submit:
 
-![](./images/import.png)
+![import](./images/import.png)
 
 Lastly, go to [Movies>All Movies](http://127.0.0.1:8081/wp-admin/edit.php?post_type=movies). You should see a listing of Star Wars movies (Episodes 1–9)
 
-![](./images/movies-posts.png)
+![movie posts](./images/movies-posts.png)
 
 ## Step Seven: Displaying Pages
 
