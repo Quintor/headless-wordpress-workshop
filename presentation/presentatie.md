@@ -23,68 +23,27 @@
 
 ---
 
-<img src="images/logo.png" style="max-height: none; border:0; background: transparent; box-shadow: none" height="100px">
+<!-- .slide: class="center-img quintor-background" data-background-color="#181D27" -->
 
-<div class="columns two">
-  <div class="left">
-    <ul>
-      <li>Java</li>
-      <li>.Net</li>
-      <li>Frontend</li>
-      <li>Platform Engineering</li>
-      <li>Security</li>
-      <li>Informatie Analyse</li>
-    </ul>
+<img src="images/quintor-techniek.jpg" style="max-height: none; border:0; background: transparent; box-shadow: none">
 
-  </div>
-  <div class="right">
-     <ul>
-      <li>Den Haag</li>
-      <li>Den Bosch</li>
-      <li>Amersfoort</li>
-      <li>Deventer</li>
-      <li>Groningen</li>
-    </ul>
-  </div>
-</div>
-<br/>
-<a href="https://quintor.nl/">https://quintor.nl/</a>
+https://quintor.nl/
 
 ---
 
-<img src="images/logo.png" style="max-height: none; border:0; background: transparent; box-shadow: none" height="100px">
+<!-- .slide: class="center-img quintor-background" data-background-color="#181D27" -->
 
-- Minor Cloud-Native Software Development
-  - <https://quintor.nl/minors/>
-- Afstuderen bij Quintor
-  - <https://quintor.nl/student/>
-- Young Professional Programma
-  - <https://quintor.nl/young-professional/>
+<img src="images/quintor-student.jpg" style="max-height: none; border:0; background: transparent; box-shadow: none">
+
+https://quintor.nl/student/
 
 ---
 
 ## Programma
 
-- Theorie
+- Intro
 - Demo
 - Hands-on opdracht
-
----
-
-## Even handjes in de modder 👌
-
-Code: <https://github.com/quintor/headless-wordpress-workshop>
-
-```sh
-git clone https://github.com/quintor/headless-wordpress-workshop.git
-
-# wordpress docker
-cd ./headless-wordpress-workshop/wordpress
-docker-compose up
-
-cd ../frontend
-npm install
-```
 
 ---
 
@@ -104,10 +63,7 @@ npm install
 
 ## Headless?
 
-<img src="images/HeadlessCMS.png"/>
-
-Note:
-Enkele notities bij de introductie pagina zichtbaar in de presenter view
+<img src="images/headless-cms.webp" height="500"/>
 
 ---
 
@@ -119,32 +75,18 @@ For example: <!-- .element: class="fragment" data-fragment-index="1" --> [Headle
 
 ---
 
-<!-- .slide: data-background="./images/devices-background-1.jpg", data-background-transition="slide" class="dark-background dark-overlay" -->
+## MACH?
 
-# Devices
+**M**icroservices **A**PI-first **C**loud-native **H**eadless
 
----
+<img src="images/mach.png" height="500"/>
 
-<!-- .slide: class="center-img" -->
-
-<img src="images/devices.svg">
-
----
-
-<!-- .slide: class="center-img" -->
-
-<img src="images/connect-all-the-things.jpg" width="500"/>
 
 ---
 
 <!-- .slide: data-background="./images/sitecore-background.jpg", data-background-transition="slide" class="dark-background dark-overlay" -->
 
 # Wordpress
-
----
-
-<!-- .slide: class="center-img" -->
-<img src="images/wordpress-themes.png"/>
 
 ---
 
@@ -188,45 +130,9 @@ Written in react 😉 <!-- .element: class="fragment" -->
 
 ---
 
-## Choose **your** framework
-
-| <img src="images/angular.svg" class="plain"> | <img src="images/react.svg" class="plain"> | <img src="images/vue.svg" class="plain"> |
-| :------------------------------------------: | :----------------------------------------: | :--------------------------------------: |
-|                   Angular                    |                   React                    |                   Vue                    |
-
----
-
-## Power to the front-end developer! ⚡️
-
-<img src="images/power.jpg">
-
----
-
 <!-- .slide: data-background="./images/demo-background.jpg", data-background-transition="slide" class="dark-background dark-overlay" -->
 
 # Demo Time
-
----
-
-## The stack
-
-| <img src="images/docker.svg" class="plain" width="500"> | <img src="images/wordpress.svg" class="plain" height="200"> | <img src="images/react.svg" class="plain" width="500"> | <img src="images/next-js.svg" class="plain" width="500"> |
-| :-----------------------------------------------------: | :--------------------------------------------------------: | :----------------------------------------------------: | :------------------------------------------------------: |
-|                         Docker                          |                         Wordpress                          |                         React                          |                         Next.js                          |
-
-<a href="<<<<http://localhost:3000>>>>" target="_blank">http://localhost:3000</a>
-
----
-
-<!-- .slide: data-background="./images/keyboard_dark.jpg", data-background-transition="slide" class="dark-background" -->
-
-# Hands-on
-
----
-
-## En nu aan het werk ⌨️
-
-### <a href="https://github.com/quintor/headless-wordpress-workshop" target="_blank">Opdrachten</a>
 
 ---
 
@@ -239,3 +145,15 @@ Written in react 😉 <!-- .element: class="fragment" -->
 <!-- .slide: data-background="./images/skyline_dark.png", data-background-transition="slide"  class="dark-background dark-overlay" -->
 
 # Vragen?
+
+---
+
+<!-- .slide: data-background="./images/keyboard_dark.jpg", data-background-transition="slide" class="dark-background" -->
+
+# Hands-on
+
+---
+
+## En nu aan het werk ⌨️
+
+#### <a href="https://github.com/quintor/headless-wordpress-workshop" target="_blank">https://github.com/quintor/headless-wordpress-workshop</a>
