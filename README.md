@@ -1,5 +1,11 @@
 # Headless WordPress with react
 
+Use git and not the Github download button 😉
+
+```sh
+git clone https://github.com/Quintor/headless-wordpress-workshop.git
+```
+
 ## What's inside
 
 - A WordPress installation with:
@@ -23,6 +29,7 @@ Let's get started.
   - follow step 4 of the guide and install the wsl kernel update package
 - [node 16, npm 8](https://nodejs.org/en/download/)
 - [postman](https://www.postman.com/downloads/) optional
+- [git](https://git-scm.com/downloads)
 
 ## Docker
 

@@ -157,3 +157,5 @@ Written in react 😉 <!-- .element: class="fragment" -->
 ## En nu aan het werk ⌨️
 
 #### <a href="https://github.com/quintor/headless-wordpress-workshop" target="_blank">https://github.com/quintor/headless-wordpress-workshop</a>
+
+> Gebruik `git` en niet de github download knop 😉
