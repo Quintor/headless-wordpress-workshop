@@ -14,11 +14,15 @@ Let's get started.
 
 ## Prerequisites
 
-- vscode / webstorm
-- docker desktop
-  - on windows install [wsl](https://docs.microsoft.com/en-us/windows/wsl/)
-- node 16, npm 8
-- postman optional
+- [vscode](https://code.visualstudio.com/) / webstorm
+- [docker desktop](https://www.docker.com/products/docker-desktop/)
+  - on windows install [wsl 2](https://docs.microsoft.com/en-us/windows/wsl/)
+  - when docker asks for wsl follow [the manual installing guide for wsl 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual)
+  - start powershell or window terminal with administrator rights
+  - run `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
+  - follow step 4 of the guide and install the wsl kernel update package
+- [node 16, npm 8](https://nodejs.org/en/download/)
+- [postman](https://www.postman.com/downloads/) optional
 
 ## Docker
 
